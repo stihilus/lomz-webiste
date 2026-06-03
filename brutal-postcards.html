@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brutal Postcards — Lomz</title>
+  <meta name="description" content="Brutal Postcards — a generative series of brutalist architecture postcards on fx(hash), with the $lomz art token on Base." />
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) { t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Brutal Postcards — Lomz" />
+  <meta property="og:description" content="Brutal Postcards — a generative series of brutalist architecture postcards on fx(hash), with the $lomz art token on Base." />
+  <meta property="og:image" content="https://lomz.net/assets/Brutal-Postcards-01.jpg" />
+  <meta property="og:url" content="https://lomz.net/brutal-postcards.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Lomz — Art × Technology" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Brutal Postcards — Lomz" />
+  <meta name="twitter:description" content="Brutal Postcards — a generative series of brutalist architecture postcards on fx(hash), with the $lomz art token on Base." />
+  <meta name="twitter:image" content="https://lomz.net/assets/Brutal-Postcards-01.jpg" />
+
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <main>
+    <project-nav></project-nav>
+    <!-- HEADER: title left · body right -->
+    <section class="project container">
+      <div class="split-head">
+        <h1 class="about-lead display-md">Brutal Postcards</h1>
+        <div class="about-body body-lg">
+          <p>My latest project on fx(hash) is a generative series of postcards inspired by Brutalist architecture — imagined buildings formed from raw concrete geometry, transformed into collectible prints. This is my first time publishing through open-form, and with it I'm also introducing my own art token, $lomz, on the Ethereum Base network. At launch, $lomz is valued at $0.003108 with a market cap of $3.108K and already counted by 75 holders — a big personal milestone. The project uses depth as a way to declare how tall each building stands, and the open-form lineage system lets me work with <code>$fx.randAt</code> — the root randomness — so that buildings within the same lineage evolve with a shared structural DNA.</p>
+          <p>To construct these imagined monuments, I prepared 90 scripted building blocks: 30 variations for the first floor, 30 for the levels between, and 30 for the roofs. When combined through generative randomness, these parts create an endless variety of brutalist forms — similar enough to feel related, yet distinct enough to become unique postcards. Each mint evolves not only as an NFT but also as part of a lineage, with the possibility to grow, lock, or re-roll, tying the visual language of brutalism to the mechanics of on-chain generative art.</p>
+
+          <div class="project-links">
+            <span class="meta-label">Project links</span>
+            <div class="project-links-list">
+              <a href="https://www.fxhash.xyz/project/brutal-postcards" target="_blank" rel="noopener noreferrer">fx(hash) — project page ↗</a>
+              <a href="https://www.fxhash.xyz/art-coin/lomz" target="_blank" rel="noopener noreferrer">fx(hash) — $lomz token ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA: 2-up grid, Brutal-Postcards-01..12 -->
+    <section class="project-media container">
+      <div class="media-grid">
+        <figure class="media-item"><img src="/assets/Brutal-Postcards-01.jpg" alt="Brutal Postcards 1" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Brutal-Postcards-02.jpg" alt="Brutal Postcards 2" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Brutal-Postcards-03.jpg" alt="Brutal Postcards 3" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Brutal-Postcards-04.jpg" alt="Brutal Postcards 4" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Brutal-Postcards-05.jpg" alt="Brutal Postcards 5" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Brutal-Postcards-06.jpg" alt="Brutal Postcards 6" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Brutal-Postcards-07.jpg" alt="Brutal Postcards 7" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Brutal-Postcards-08.jpg" alt="Brutal Postcards 8" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Brutal-Postcards-09.jpg" alt="Brutal Postcards 9" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Brutal-Postcards-10.jpg" alt="Brutal Postcards 10" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Brutal-Postcards-11.jpg" alt="Brutal Postcards 11" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Brutal-Postcards-12.jpg" alt="Brutal Postcards 12" loading="lazy" /></figure>
+      </div>
+    </section>
+  </main>
+
+  <related-projects></related-projects>
+  <site-footer></site-footer>
+
+  <script src="/components/header.js" type="module"></script>
+  <script src="/components/footer.js" type="module"></script>
+  <script src="/components/related-projects.js" type="module"></script>
+</body>
+</html>

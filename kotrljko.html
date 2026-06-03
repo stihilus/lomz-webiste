@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kotrljko — Lomz</title>
+  <meta name="description" content="Kotrljko — an XY drawing machine built with NEMA17 motors, Arduino and handmade wooden/metal parts. By Lomz." />
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) { t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Kotrljko — Lomz" />
+  <meta property="og:description" content="Kotrljko — an XY drawing machine built with NEMA17 motors, Arduino and handmade wooden/metal parts. By Lomz." />
+  <meta property="og:image" content="https://lomz.net/assets/kotrljko-01.jpg" />
+  <meta property="og:url" content="https://lomz.net/kotrljko.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Lomz — Art × Technology" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kotrljko — Lomz" />
+  <meta name="twitter:description" content="Kotrljko — an XY drawing machine built with NEMA17 motors, Arduino and handmade wooden/metal parts. By Lomz." />
+  <meta name="twitter:image" content="https://lomz.net/assets/kotrljko-01.jpg" />
+
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <main>
+    <project-nav></project-nav>
+    <!-- HEADER: title left · body right -->
+    <section class="project container">
+      <div class="split-head">
+        <h1 class="about-lead display-md">Kotrljko</h1>
+        <div class="about-body body-lg">
+          <p>Kotrljko is a drawing XY machine that I created a few years ago with the help of my father. It was one of my first attempts at hardware projects and it was a challenging journey. However, in the end, Kotrljko successfully creates drawings. From a technical perspective, Kotrljko uses two NEMA17 motors, Arduino shields with controllers, and wooden and metal parts that were handmade by my partner. On the software side, I used the Universal Gcode Sender and the Inkscape program with an add-on.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA: 2-up grid, YouTube first then kotrljko-01..07 -->
+    <section class="project-media container">
+      <div class="media-grid">
+        <div class="media-item">
+          <iframe src="https://www.youtube.com/embed/gFG1meT4ATk" title="Kotrljko — drawing machine" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <figure class="media-item"><img src="/assets/kotrljko-01.jpg" alt="Kotrljko 1" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/kotrljko-02.jpg" alt="Kotrljko 2" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/kotrljko-03.jpg" alt="Kotrljko 3" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/kotrljko-04.jpg" alt="Kotrljko 4" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/kotrljko-05.jpg" alt="Kotrljko 5" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/kotrljko-06.jpg" alt="Kotrljko 6" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/kotrljko-07.jpg" alt="Kotrljko 7" loading="lazy" /></figure>
+      </div>
+    </section>
+  </main>
+
+  <related-projects></related-projects>
+  <site-footer></site-footer>
+
+  <script src="/components/header.js" type="module"></script>
+  <script src="/components/footer.js" type="module"></script>
+  <script src="/components/related-projects.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Block States — Lomz</title>
+  <meta name="description" content="Block States — a delivery-racing game by Lomz, built in Blender and the Godot engine." />
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) { t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Block States — Lomz" />
+  <meta property="og:description" content="Block States — a delivery-racing game by Lomz, built in Blender and the Godot engine." />
+  <meta property="og:image" content="https://lomz.net/assets/block-states-01.jpg" />
+  <meta property="og:url" content="https://lomz.net/block-states.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Lomz — Art × Technology" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Block States — Lomz" />
+  <meta name="twitter:description" content="Block States — a delivery-racing game by Lomz, built in Blender and the Godot engine." />
+  <meta name="twitter:image" content="https://lomz.net/assets/block-states-01.jpg" />
+
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <main>
+    <project-nav></project-nav>
+    <!-- HEADER: body left · title right -->
+    <section class="project container">
+      <div class="split-head">
+        <h1 class="about-lead display-md">Block States</h1>
+        <div class="about-body body-lg">
+          <p>Block States is a game where you play as a delivery guy racing against the clock to get packages from point A to point B as fast as possible. Your best times get saved for each track. The plan is to have different block states with several tracks for each one. Still figuring out where this project will go!</p>
+          <p>I've been making everything myself, all the 3D models in Blender and all the gameplay and systems in the Godot engine.</p>
+
+          <div class="project-links">
+            <span class="meta-label">Project links</span>
+            <div class="project-links-list">
+              <a href="https://store.steampowered.com/app/4058260/Block_States/" target="_blank" rel="noopener noreferrer">Steam — store page ↗</a>
+              <a href="https://lomzart.itch.io/block-states" target="_blank" rel="noopener noreferrer">itch.io — Itch page with DEMO (web version) ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA: 2-up grid, YouTube first then screenshots -->
+    <section class="project-media container">
+      <div class="media-grid">
+        <div class="media-item">
+          <iframe src="https://www.youtube.com/embed/LdJUWIZQfhQ" title="Block States — gameplay" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <figure class="media-item"><img src="/assets/block-states-01.jpg" alt="Block States screenshot 1" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/block-states-02.jpg" alt="Block States screenshot 2" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/block-states-03.jpg" alt="Block States screenshot 3" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/block-states-04.jpg" alt="Block States screenshot 4" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/block-states-05.jpg" alt="Block States screenshot 5" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/block-states-06.jpg" alt="Block States screenshot 6" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/block-states-07.jpg" alt="Block States screenshot 7" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/block-states-08.jpg" alt="Block States screenshot 8" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/block-states-09.jpg" alt="Block States screenshot 9" loading="lazy" /></figure>
+      </div>
+    </section>
+  </main>
+
+  <related-projects></related-projects>
+  <site-footer></site-footer>
+
+  <script src="/components/header.js" type="module"></script>
+  <script src="/components/footer.js" type="module"></script>
+  <script src="/components/related-projects.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>openSnippet — Lomz</title>
+  <meta name="description" content="openSnippet — a platform for sharing and exploring creative code snippets in p5.js. A full-stack exploration by Lomz." />
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) { t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="openSnippet — Lomz" />
+  <meta property="og:description" content="openSnippet — a platform for sharing and exploring creative code snippets in p5.js. A full-stack exploration by Lomz." />
+  <meta property="og:image" content="https://lomz.net/assets/openSnipper-01.jpg" />
+  <meta property="og:url" content="https://lomz.net/opensnippet.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Lomz — Art × Technology" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="openSnippet — Lomz" />
+  <meta name="twitter:description" content="openSnippet — a platform for sharing and exploring creative code snippets in p5.js. A full-stack exploration by Lomz." />
+  <meta name="twitter:image" content="https://lomz.net/assets/openSnipper-01.jpg" />
+
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <main>
+    <project-nav></project-nav>
+    <!-- HEADER: title left · body right -->
+    <section class="project container">
+      <div class="split-head">
+        <h1 class="about-lead display-md">openSnippet</h1>
+        <div class="about-body body-lg">
+          <p>openSnippets is a platform for sharing and exploring creative code snippets using p5.js! Living in these wild times where we can basically build anything, I decided to dive into openSnippets as my own little exploration. This was my first time tackling a full-stack project from scratch – I set up the server, configured the database, wrote both the backend and frontend, designed the whole thing, and honestly, after a few iterations of "why isn't this working?!" everything just clicked. OpenSnippets became this platform where people can share and discover creative code snippets using p5.js, and I'm pretty stoked about how it turned out. It was one of those projects where I threw myself into the deep end and somehow managed to swim, with a little help from AI along the way, of course.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA: 2-up grid, openSnipper-01..06 -->
+    <section class="project-media container">
+      <div class="media-grid">
+        <figure class="media-item"><img src="/assets/openSnipper-01.jpg" alt="openSnippet 1" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/openSnipper-02.jpg" alt="openSnippet 2" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/openSnipper-03.jpg" alt="openSnippet 3" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/openSnipper-04.jpg" alt="openSnippet 4" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/openSnipper-05.jpg" alt="openSnippet 5" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/openSnipper-06.jpg" alt="openSnippet 6" loading="lazy" /></figure>
+      </div>
+    </section>
+  </main>
+
+  <related-projects></related-projects>
+  <site-footer></site-footer>
+
+  <script src="/components/header.js" type="module"></script>
+  <script src="/components/footer.js" type="module"></script>
+  <script src="/components/related-projects.js" type="module"></script>
+</body>
+</html>

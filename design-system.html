@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LOMZ — Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* ---- Color (white / black / signal orange only) ---- */
+    --ink: #212124;
+    --paper: #E9E8E5;
+    --accent: #FF4C24;
+    --on-accent: #E9E8E5;
+    --ink-60: rgba(33, 33, 36, 0.6);
+    --ink-35: rgba(33, 33, 36, 0.35);
+    --hairline: rgba(33, 33, 36, 0.12);
+
+    /* ---- Type ---- */
+    --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* ---- Spacing (8px scale) ---- */
+    --sp-xs: 4px;
+    --sp-sm: 8px;
+    --sp-md: 16px;
+    --sp-lg: 24px;
+    --sp-xl: 40px;
+    --sp-2xl: 64px;
+    --sp-3xl: 96px;
+    --sp-4xl: 160px;
+
+    --container: 1280px;
+    --measure: 45rem;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.4em;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- Type primitives ---------- */
+  .display-xl { font-size: clamp(64px, 11vw, 120px); font-weight: 500; line-height: 0.95em; letter-spacing: -0.04em; }
+  .display-lg { font-size: clamp(48px, 7vw, 80px); font-weight: 500; line-height: 1em; letter-spacing: -0.04em; }
+  .display-md { font-size: clamp(36px, 4.5vw, 48px); font-weight: 500; line-height: 1.05em; letter-spacing: -0.03em; }
+  h1, .h1 { font-size: clamp(32px, 4vw, 40px); font-weight: 500; line-height: 1.1em; letter-spacing: -0.03em; }
+  h2, .h2 { font-size: 32px; font-weight: 500; line-height: 1.1em; letter-spacing: -0.03em; }
+  h3, .h3 { font-size: 24px; font-weight: 500; line-height: 1.2em; letter-spacing: -0.02em; }
+  h4, .h4 { font-size: 20px; font-weight: 500; line-height: 1.2em; letter-spacing: -0.02em; }
+  .body-lg { font-size: 18px; line-height: 1.4em; letter-spacing: -0.01em; }
+  .body-md { font-size: 16px; line-height: 1.4em; letter-spacing: -0.01em; }
+  .body-sm { font-size: 14px; line-height: 1.4em; letter-spacing: -0.01em; }
+
+  .label-caps {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1em;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .caption {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.2em;
+    letter-spacing: 0.02em;
+    color: var(--ink-60);
+  }
+  .muted { color: var(--ink-60); }
+  .accent { color: var(--accent); }
+
+  /* ---------- Layout ---------- */
+  .container { max-width: var(--container); margin: 0 auto; padding-inline: var(--sp-lg); }
+
+  section.block {
+    padding-block: clamp(var(--sp-3xl), 12vw, var(--sp-4xl));
+    border-top: 1px solid var(--hairline);
+  }
+  section.block:first-of-type { border-top: none; }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-sm);
+    margin-bottom: var(--sp-lg);
+  }
+  .eyebrow .num { color: var(--accent); }
+
+  /* ---------- Nav ---------- */
+  nav.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--paper);
+    border-bottom: 1px solid var(--hairline);
+  }
+  nav.topnav .row {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: var(--sp-md) var(--sp-lg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .wordmark { font-weight: 700; letter-spacing: -0.03em; font-size: 18px; }
+  .navlinks { display: flex; gap: var(--sp-xl); }
+  .navlinks a {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-transform: none;
+    text-decoration: none;
+    color: var(--ink);
+    transition: color 150ms ease;
+  }
+  .navlinks a:hover { color: var(--accent); }
+  .navlinks a.active { color: var(--accent); }
+
+  /* ---------- Links ---------- */
+  a.link { color: var(--ink); text-decoration: none; transition: color 150ms ease; }
+  a.link:hover { color: var(--accent); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; }
+  a.link-inline { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; transition: color 150ms ease; }
+  a.link-inline:hover { color: var(--accent); }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-sm);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    padding: 16px 24px;
+    border: 1px solid var(--ink);
+    border-radius: 0;
+    cursor: pointer;
+    transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+  }
+  .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .btn-primary { background: var(--ink); color: var(--on-accent); border-color: var(--ink); }
+  .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+  .btn-accent { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+  .btn-accent:hover { background: var(--ink); border-color: var(--ink); }
+  .btn-ghost { background: var(--paper); color: var(--ink); }
+  .btn-ghost:hover { background: var(--ink); color: var(--paper); }
+  .btn:disabled, .btn.is-disabled { color: var(--ink-35); border-color: var(--hairline); background: var(--paper); cursor: not-allowed; }
+
+  /* ---------- Cards ---------- */
+  .grid { display: grid; gap: var(--sp-lg); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } .grid-2 { grid-template-columns: 1fr; } .navlinks { gap: var(--sp-md); } }
+
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--hairline);
+    border-radius: 0;
+    padding: var(--sp-lg);
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+  }
+  .card:hover { border-color: var(--ink); box-shadow: 0 1px 2px rgba(33,33,36,0.06); }
+  .card .label-caps { color: var(--ink-60); margin-bottom: var(--sp-md); display: block; }
+  .card h3 { margin-bottom: var(--sp-sm); }
+
+  /* ---------- Tags ---------- */
+  .tag {
+    display: inline-flex;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border: 1px solid var(--hairline);
+    border-radius: 0;
+  }
+  .tag.pill { border-radius: 9999px; }
+  .tag.solid { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+
+  /* ---------- Swatches ---------- */
+  .swatches { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-lg); }
+  @media (max-width: 700px) { .swatches { grid-template-columns: 1fr; } }
+  .swatch { border: 1px solid var(--hairline); }
+  .swatch .chip { height: 140px; }
+  .swatch .meta { padding: var(--sp-md); display: flex; justify-content: space-between; align-items: baseline; }
+  .opacity-row { display: flex; gap: 0; border: 1px solid var(--hairline); margin-top: var(--sp-lg); }
+  .opacity-row > div { flex: 1; height: 64px; display: flex; align-items: flex-end; padding: var(--sp-sm); }
+
+  /* ---------- Stats ---------- */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-xl); }
+  @media (max-width: 700px) { .stats { grid-template-columns: 1fr; } }
+  .stat .num { display: block; margin-bottom: var(--sp-sm); }
+
+  /* ---------- Type specimen rows ---------- */
+  .specimen { border-top: 1px solid var(--hairline); padding-block: var(--sp-lg); display: grid; grid-template-columns: 160px 1fr; gap: var(--sp-lg); align-items: baseline; }
+  @media (max-width: 700px) { .specimen { grid-template-columns: 1fr; gap: var(--sp-sm); } }
+  .specimen .key { color: var(--ink-60); }
+
+  /* ---------- Spacing demo ---------- */
+  .space-demo { display: flex; flex-direction: column; gap: var(--sp-md); }
+  .space-demo .row { display: flex; align-items: center; gap: var(--sp-md); }
+  .space-demo .bar { background: var(--accent); height: 16px; }
+  .space-demo .key { width: 120px; color: var(--ink-60); }
+
+  /* ---------- Grid demo ---------- */
+  .grid-demo { display: grid; grid-template-columns: repeat(12, 1fr); gap: 8px; }
+  .grid-demo > div { background: var(--hairline); height: 56px; display: flex; align-items: center; justify-content: center; }
+  .grid-demo > div span { color: var(--ink-60); }
+
+  footer.site {
+    border-top: 1px solid var(--hairline);
+    padding-block: var(--sp-2xl);
+  }
+  footer.site .row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--sp-lg); }
+  footer.site .navlinks a { font-size: 14px; }
+
+  .lead { max-width: var(--measure); }
+  .stack-lg > * + * { margin-top: var(--sp-lg); }
+  .stack-md > * + * { margin-top: var(--sp-md); }
+</style>
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="LOMZ — Design System" />
+  <meta property="og:description" content="Vukasin aka Lomz — explorer focusing on the intersection of art and technology." />
+  <meta property="og:image" content="https://lomz.net/assets/home-screen-slider-01.jpg" />
+  <meta property="og:url" content="https://lomz.net/design-system.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Lomz — Art × Technology" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LOMZ — Design System" />
+  <meta name="twitter:description" content="Vukasin aka Lomz — explorer focusing on the intersection of art and technology." />
+  <meta name="twitter:image" content="https://lomz.net/assets/home-screen-slider-01.jpg" />
+
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="row">
+    <span class="wordmark">LOMZ</span>
+    <div class="navlinks">
+      <a href="#colors">Colors</a>
+      <a href="#type">Type</a>
+      <a href="#layout">Layout</a>
+      <a href="#components" class="active">Components</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="block">
+  <div class="container">
+    <h1 class="display-lg">A black, white &amp;<br>orange system<span class="accent">.</span></h1>
+    <p class="body-lg lead muted" style="margin-top: var(--sp-lg);">
+      An editorial, high-contrast design language inspired by stateofaidesign.com.
+      Pure paper surfaces, ink-black type, and a single signal orange reserved
+      for everything you can touch.
+    </p>
+    <div style="display:flex; gap: var(--sp-md); margin-top: var(--sp-xl); flex-wrap: wrap;">
+      <a href="#components" class="btn btn-primary">View components</a>
+      <a href="#colors" class="btn btn-ghost">Start with color</a>
+    </div>
+  </div>
+</section>
+
+<!-- COLORS -->
+<section class="block" id="colors">
+  <div class="container">
+    <h2>Three values, no greys</h2>
+    <p class="body-md lead muted stack-md" style="margin-top: var(--sp-md); margin-bottom: var(--sp-2xl);">
+      The palette is restricted to ink, paper and signal orange. Secondary and
+      disabled states are ink at reduced opacity — the system never drifts off-brand.
+    </p>
+
+    <div class="swatches">
+      <div class="swatch">
+        <div class="chip" style="background:#212124;"></div>
+        <div class="meta"><span class="label-caps">Ink</span><span class="caption">#212124</span></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#E9E8E5; border-bottom:1px solid var(--hairline);"></div>
+        <div class="meta"><span class="label-caps">Paper</span><span class="caption">#E9E8E5</span></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#FF4C24;"></div>
+        <div class="meta"><span class="label-caps">Signal</span><span class="caption">#FF4C24</span></div>
+      </div>
+    </div>
+
+    <p class="label-caps muted" style="margin-top: var(--sp-2xl); margin-bottom: var(--sp-md);">Ink opacities</p>
+    <div class="opacity-row">
+      <div style="background:rgba(33,33,36,1); color:#E9E8E5;"><span class="caption" style="color:#E9E8E5;">100%</span></div>
+      <div style="background:rgba(33,33,36,0.6); color:#E9E8E5;"><span class="caption" style="color:#E9E8E5;">60% · text-2</span></div>
+      <div style="background:rgba(33,33,36,0.35); color:#E9E8E5;"><span class="caption" style="color:#E9E8E5;">35% · disabled</span></div>
+      <div style="background:rgba(33,33,36,0.12);"><span class="caption">12% · hairline</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TYPE -->
+<section class="block" id="type">
+  <div class="container">
+    <h2>Inter, used for everything</h2>
+    <p class="body-md lead muted" style="margin-top: var(--sp-md); margin-bottom: var(--sp-2xl);">
+      Hierarchy comes from scale and weight. The bigger the type, the tighter the
+      tracking. Labels are always UPPERCASE and lightly tracked open.
+    </p>
+
+    <div class="specimen"><div class="key caption">display-xl · 120</div><div class="display-xl">91%</div></div>
+    <div class="specimen"><div class="key caption">display-lg · 80</div><div class="display-lg">Design</div></div>
+    <div class="specimen"><div class="key caption">display-md · 48</div><div class="display-md">Chapter title</div></div>
+    <div class="specimen"><div class="key caption">h1 · 40</div><div class="h1">Page heading</div></div>
+    <div class="specimen"><div class="key caption">h2 · 32</div><div class="h2">Section heading</div></div>
+    <div class="specimen"><div class="key caption">h3 · 24</div><div class="h3">Sub-heading</div></div>
+    <div class="specimen"><div class="key caption">body-lg · 18</div><div class="body-lg">Lead paragraph for introductions and standfirst copy.</div></div>
+    <div class="specimen"><div class="key caption">body-md · 16</div><div class="body-md">Default body text used for the majority of reading content across the system.</div></div>
+    <div class="specimen"><div class="key caption">body-sm · 14</div><div class="body-sm">Dense body and footnotes.</div></div>
+    <div class="specimen"><div class="key caption">label-caps · 13</div><div class="label-caps">Eyebrow · Button · Nav</div></div>
+    <div class="specimen"><div class="key caption">caption · 12</div><div class="caption">Metadata and figure captions</div></div>
+  </div>
+</section>
+
+<!-- LAYOUT -->
+<section class="block" id="layout">
+  <div class="container">
+    <h2>An 8px scale on a 12-column grid</h2>
+
+    <p class="label-caps muted" style="margin-top: var(--sp-xl); margin-bottom: var(--sp-md);">Spacing scale</p>
+    <div class="space-demo">
+      <div class="row"><span class="key caption">xs · 4</span><span class="bar" style="width:4px;"></span></div>
+      <div class="row"><span class="key caption">sm · 8</span><span class="bar" style="width:8px;"></span></div>
+      <div class="row"><span class="key caption">md · 16</span><span class="bar" style="width:16px;"></span></div>
+      <div class="row"><span class="key caption">lg · 24</span><span class="bar" style="width:24px;"></span></div>
+      <div class="row"><span class="key caption">xl · 40</span><span class="bar" style="width:40px;"></span></div>
+      <div class="row"><span class="key caption">2xl · 64</span><span class="bar" style="width:64px;"></span></div>
+      <div class="row"><span class="key caption">3xl · 96</span><span class="bar" style="width:96px;"></span></div>
+      <div class="row"><span class="key caption">4xl · 160</span><span class="bar" style="width:160px;"></span></div>
+    </div>
+
+    <p class="label-caps muted" style="margin-top: var(--sp-2xl); margin-bottom: var(--sp-md);">12-column grid</p>
+    <div class="grid-demo">
+      <div><span class="caption">1</span></div><div><span class="caption">2</span></div><div><span class="caption">3</span></div>
+      <div><span class="caption">4</span></div><div><span class="caption">5</span></div><div><span class="caption">6</span></div>
+      <div><span class="caption">7</span></div><div><span class="caption">8</span></div><div><span class="caption">9</span></div>
+      <div><span class="caption">10</span></div><div><span class="caption">11</span></div><div><span class="caption">12</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section class="block">
+  <div class="container">
+    <div class="stats">
+      <div class="stat">
+        <span class="num display-lg accent">91%</span>
+        <span class="caption">of designers use AI weekly</span>
+      </div>
+      <div class="stat">
+        <span class="num display-lg">75%</span>
+        <span class="caption">ship faster with AI tooling</span>
+      </div>
+      <div class="stat">
+        <span class="num display-lg">65%</span>
+        <span class="caption">expect tracked labels everywhere</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPONENTS -->
+<section class="block" id="components">
+  <div class="container">
+    <h2>Buttons, links, cards, tags</h2>
+
+    <p class="label-caps muted" style="margin-top: var(--sp-xl); margin-bottom: var(--sp-md);">Buttons</p>
+    <div style="display:flex; gap: var(--sp-md); flex-wrap: wrap; align-items:center;">
+      <button class="btn btn-primary">Primary</button>
+      <button class="btn btn-accent">Accent</button>
+      <button class="btn btn-ghost">Ghost</button>
+      <button class="btn is-disabled" disabled>Disabled</button>
+    </div>
+    <p class="caption" style="margin-top: var(--sp-md);">Hover any button — fills swap between ink and orange. Corners stay square.</p>
+
+    <p class="label-caps muted" style="margin-top: var(--sp-2xl); margin-bottom: var(--sp-md);">Links</p>
+    <div class="stack-md">
+      <p class="body-md">A standalone <a href="#" class="link">navigation link</a> turns orange on hover.</p>
+      <p class="body-md">An <a href="#" class="link-inline">inline reading link</a> carries a permanent orange underline.</p>
+    </div>
+
+    <p class="label-caps muted" style="margin-top: var(--sp-2xl); margin-bottom: var(--sp-md);">Tags</p>
+    <div style="display:flex; gap: var(--sp-sm); flex-wrap: wrap;">
+      <span class="tag">General AI</span>
+      <span class="tag">Design</span>
+      <span class="tag solid">Featured</span>
+      <span class="tag pill">Pill variant</span>
+    </div>
+
+    <p class="label-caps muted" style="margin-top: var(--sp-2xl); margin-bottom: var(--sp-md);">Cards</p>
+    <div class="grid grid-3">
+      <div class="card">
+        <span class="label-caps">01 — Tool</span>
+        <h3>Figma AI</h3>
+        <p class="body-sm muted">Generative layout and content tools embedded directly in the canvas.</p>
+        <a href="#" class="link-inline body-sm" style="display:inline-block; margin-top: var(--sp-md);">Read more</a>
+      </div>
+      <div class="card">
+        <span class="label-caps">02 — Tool</span>
+        <h3>Claude Code</h3>
+        <p class="body-sm muted">An agentic CLI that turns this very design.md into production UI.</p>
+        <a href="#" class="link-inline body-sm" style="display:inline-block; margin-top: var(--sp-md);">Read more</a>
+      </div>
+      <div class="card">
+        <span class="label-caps">03 — Tool</span>
+        <h3>Stitch</h3>
+        <p class="body-sm muted">Google's design-with-AI surface and the home of the DESIGN.md format.</p>
+        <a href="#" class="link-inline body-sm" style="display:inline-block; margin-top: var(--sp-md);">Read more</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site">
+  <div class="container">
+    <div class="row">
+      <span class="caption">© 2026 LOMZ — Design System</span>
+      <div class="navlinks">
+        <a href="#colors" class="link">Colors</a>
+        <a href="#type" class="link">Type</a>
+        <a href="#components" class="link">Components</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

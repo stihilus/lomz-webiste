@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ardusajzer — Lomz</title>
+  <meta name="description" content="Ardusajzer — a two-voice Arduino-based step sequencer synthesizer. Built with Bojan Dragutinović." />
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) { t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Ardusajzer — Lomz" />
+  <meta property="og:description" content="Ardusajzer — a two-voice Arduino-based step sequencer synthesizer. Built with Bojan Dragutinović." />
+  <meta property="og:image" content="https://lomz.net/assets/ardusajzer-01.jpg" />
+  <meta property="og:url" content="https://lomz.net/ardusajzer.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Lomz — Art × Technology" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ardusajzer — Lomz" />
+  <meta name="twitter:description" content="Ardusajzer — a two-voice Arduino-based step sequencer synthesizer. Built with Bojan Dragutinović." />
+  <meta name="twitter:image" content="https://lomz.net/assets/ardusajzer-01.jpg" />
+
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <main>
+    <project-nav></project-nav>
+    <!-- HEADER: title left · body right -->
+    <section class="project container">
+      <div class="split-head">
+        <h1 class="about-lead display-md">Ardusajzer</h1>
+        <div class="about-body body-lg">
+          <p>Bojan Dragutinović and I created the Ardusajzer in the makerspace using Arduino technology. This synthesizer has two voices and a two-step sequencer with 8 steps. The user can adjust the tempo to their preference and choose the pitch and duration for each step — or skip it entirely. The Ardusajzer uses three Arduino boards (one for the tempo and two for the sequencers) and has three displays for easier use.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA: 2-up grid, two YouTube videos then ardusajzer-01..06 -->
+    <section class="project-media container">
+      <div class="media-grid">
+        <div class="media-item">
+          <iframe src="https://www.youtube.com/embed/VoZ_jweXEJE" title="Ardusajzer — demo 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="media-item">
+          <iframe src="https://www.youtube.com/embed/PmDS9zMzuFU" title="Ardusajzer — demo 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <figure class="media-item"><img src="/assets/ardusajzer-01.jpg" alt="Ardusajzer 1" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/ardusajzer-02.jpg" alt="Ardusajzer 2" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/ardusajzer-03.jpg" alt="Ardusajzer 3" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/ardusajzer-04.jpg" alt="Ardusajzer 4" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/ardusajzer-05.jpg" alt="Ardusajzer 5" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/ardusajzer-06.jpg" alt="Ardusajzer 6" loading="lazy" /></figure>
+      </div>
+    </section>
+  </main>
+
+  <related-projects></related-projects>
+  <site-footer></site-footer>
+
+  <script src="/components/header.js" type="module"></script>
+  <script src="/components/footer.js" type="module"></script>
+  <script src="/components/related-projects.js" type="module"></script>
+</body>
+</html>

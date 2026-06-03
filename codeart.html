@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeArt — Lomz</title>
+  <meta name="description" content="CodeArt — an interactive p5.js piece where you mix shapes and colors to create your own generative designs. By Lomz." />
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) { t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="CodeArt — Lomz" />
+  <meta property="og:description" content="CodeArt — an interactive p5.js piece where you mix shapes and colors to create your own generative designs. By Lomz." />
+  <meta property="og:image" content="https://lomz.net/assets/codeArt-01.jpg" />
+  <meta property="og:url" content="https://lomz.net/codeart.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Lomz — Art × Technology" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CodeArt — Lomz" />
+  <meta name="twitter:description" content="CodeArt — an interactive p5.js piece where you mix shapes and colors to create your own generative designs. By Lomz." />
+  <meta name="twitter:image" content="https://lomz.net/assets/codeArt-01.jpg" />
+
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <main>
+    <project-nav></project-nav>
+    <!-- HEADER: title left · body right -->
+    <section class="project container">
+      <div class="split-head">
+        <h1 class="about-lead display-md">CodeArt</h1>
+        <div class="about-body body-lg">
+          <p>This is an interactive piece I made that plays around with how art gets created — but digitally! I built it using p5.js and it lets you mix and match different colors and shapes to create your own unique designs right on the screen. You can even print them out! The fun part is that you get to be part of the artwork by picking different elements and seeing what cool combinations come out of it.</p>
+
+          <div class="project-links">
+            <span class="meta-label">Project links</span>
+            <div class="project-links-list">
+              <a href="https://editor.p5js.org/lomz/sketches/CX-UHq__K" target="_blank" rel="noopener noreferrer">Make your graphics — p5.js editor ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA: 2-up grid, two YouTube videos then codeArt-01..06 -->
+    <section class="project-media container">
+      <div class="media-grid">
+        <div class="media-item">
+          <iframe src="https://www.youtube.com/embed/04wrbGOYVOs" title="CodeArt — demo 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="media-item">
+          <iframe src="https://www.youtube.com/embed/fs3tfY_5pjA" title="CodeArt — demo 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <figure class="media-item"><img src="/assets/codeArt-01.jpg" alt="CodeArt 1" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/codeArt-02.jpg" alt="CodeArt 2" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/codeArt-03.jpg" alt="CodeArt 3" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/codeArt-04.jpg" alt="CodeArt 4" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/codeArt-05.jpg" alt="CodeArt 5" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/codeArt-06.jpg" alt="CodeArt 6" loading="lazy" /></figure>
+      </div>
+    </section>
+  </main>
+
+  <related-projects></related-projects>
+  <site-footer></site-footer>
+
+  <script src="/components/header.js" type="module"></script>
+  <script src="/components/footer.js" type="module"></script>
+  <script src="/components/related-projects.js" type="module"></script>
+</body>
+</html>

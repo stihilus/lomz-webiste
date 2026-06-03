@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ash — Lomz</title>
+  <meta name="description" content="Ash — Belgrade-based premium limited-edition clothing brand. Concept and design by Lomz." />
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) { t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Ash — Lomz" />
+  <meta property="og:description" content="Ash — Belgrade-based premium limited-edition clothing brand. Concept and design by Lomz." />
+  <meta property="og:image" content="https://lomz.net/assets/ash-01.jpg" />
+  <meta property="og:url" content="https://lomz.net/ash.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Lomz — Art × Technology" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ash — Lomz" />
+  <meta name="twitter:description" content="Ash — Belgrade-based premium limited-edition clothing brand. Concept and design by Lomz." />
+  <meta name="twitter:image" content="https://lomz.net/assets/ash-01.jpg" />
+
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <main>
+    <project-nav></project-nav>
+    <!-- HEADER: title left · body right -->
+    <section class="project container">
+      <div class="split-head">
+        <h1 class="about-lead display-md">Ash</h1>
+        <div class="about-body body-lg">
+          <p>The concept was born in 2018 and I made this jacket and called it Agora. The Athenians would gather in the Agora to watch the Agon, a competition among the finest. The effort accompanied by pain, paid in blood and fueled by the desire to prove oneself, the people called Agony. Some participated in the agony, while others watched with excitement. Only One paid no attention to it — he knew their Agony was insignificant compared to what lay within him. He knew that the only worthy opponent was himself. He was always the winner in the Agora.</p>
+          <p>Belgrade based premium limited-edition goods. High quality materials combined with unique design, for ultimate comfort and recognizable presence.</p>
+
+          <div class="project-links">
+            <span class="meta-label">Project links</span>
+            <div class="project-links-list">
+              <a href="https://www.behance.net/gallery/57948059/ashclothing" target="_blank" rel="noopener noreferrer">Behance — Website design ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA: 2-up grid, ash-01..08 -->
+    <section class="project-media container">
+      <div class="media-grid">
+        <figure class="media-item"><img src="/assets/ash-01.jpg" alt="Ash 1" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/ash-02.jpg" alt="Ash 2" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/ash-03.jpg" alt="Ash 3" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/ash-04.jpg" alt="Ash 4" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/ash-05.jpg" alt="Ash 5" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/ash-06.jpg" alt="Ash 6" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/ash-07.jpg" alt="Ash 7" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/ash-08.jpg" alt="Ash 8" loading="lazy" /></figure>
+      </div>
+    </section>
+  </main>
+
+  <related-projects></related-projects>
+  <site-footer></site-footer>
+
+  <script src="/components/header.js" type="module"></script>
+  <script src="/components/footer.js" type="module"></script>
+  <script src="/components/related-projects.js" type="module"></script>
+</body>
+</html>

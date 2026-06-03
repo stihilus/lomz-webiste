@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Super Unbelievable Fall at Dawn — Lomz</title>
+  <meta name="description" content="Super Unbelievable Fall at Dawn — a generative comic generator on fx(hash), in collaboration with Joe Chain." />
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) { t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Super Unbelievable Fall at Dawn — Lomz" />
+  <meta property="og:description" content="Super Unbelievable Fall at Dawn — a generative comic generator on fx(hash), in collaboration with Joe Chain." />
+  <meta property="og:image" content="https://lomz.net/assets/Super-Unbelievable-Fall-at-Dawn-01.jpg" />
+  <meta property="og:url" content="https://lomz.net/super-unbelievable-fall-at-dawn.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Lomz — Art × Technology" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Super Unbelievable Fall at Dawn — Lomz" />
+  <meta name="twitter:description" content="Super Unbelievable Fall at Dawn — a generative comic generator on fx(hash), in collaboration with Joe Chain." />
+  <meta name="twitter:image" content="https://lomz.net/assets/Super-Unbelievable-Fall-at-Dawn-01.jpg" />
+
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <main>
+    <project-nav></project-nav>
+    <!-- HEADER: title left · body right -->
+    <section class="project container">
+      <div class="split-head">
+        <h1 class="about-lead display-md">Super Unbelievable Fall at Dawn</h1>
+        <div class="about-body body-lg">
+          <p>In collaboration with the amazing <a class="link-inline" href="https://www.instagram.com/joe_chain90/?hl=en" target="_blank" rel="noopener noreferrer">Joe Chain</a>, we created a generative comic generator. Joe handled the artwork while I worked on the code. The project was released as an NFT on the fx(hash) platform.</p>
+
+          <div class="project-links">
+            <span class="meta-label">Project links</span>
+            <div class="project-links-list">
+              <a href="https://openprocessing.org/sketch/1735366" target="_blank" rel="noopener noreferrer">OpenProcessing — source code ↗</a>
+              <a href="https://www.fxhash.xyz/project/super-unbelievable-fall-at-down" target="_blank" rel="noopener noreferrer">fx(hash) — project page ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA: 2-up grid, Super-Unbelievable-Fall-at-Dawn-01..06 -->
+    <section class="project-media container">
+      <div class="media-grid">
+        <figure class="media-item"><img src="/assets/Super-Unbelievable-Fall-at-Dawn-01.jpg" alt="Super Unbelievable Fall at Dawn 1" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Super-Unbelievable-Fall-at-Dawn-02.jpg" alt="Super Unbelievable Fall at Dawn 2" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Super-Unbelievable-Fall-at-Dawn-03.jpg" alt="Super Unbelievable Fall at Dawn 3" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Super-Unbelievable-Fall-at-Dawn-04.jpg" alt="Super Unbelievable Fall at Dawn 4" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Super-Unbelievable-Fall-at-Dawn-05.jpg" alt="Super Unbelievable Fall at Dawn 5" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Super-Unbelievable-Fall-at-Dawn-06.jpg" alt="Super Unbelievable Fall at Dawn 6" loading="lazy" /></figure>
+      </div>
+    </section>
+  </main>
+
+  <related-projects></related-projects>
+  <site-footer></site-footer>
+
+  <script src="/components/header.js" type="module"></script>
+  <script src="/components/footer.js" type="module"></script>
+  <script src="/components/related-projects.js" type="module"></script>
+</body>
+</html>

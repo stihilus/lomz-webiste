@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AnalogVJ — Lomz</title>
+  <meta name="description" content="AnalogVJ — a repurposed slide projector used as a live VJ tool for band performances. By Lomz." />
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) { t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="AnalogVJ — Lomz" />
+  <meta property="og:description" content="AnalogVJ — a repurposed slide projector used as a live VJ tool for band performances. By Lomz." />
+  <meta property="og:image" content="https://lomz.net/assets/AnalogVJ-01.jpg" />
+  <meta property="og:url" content="https://lomz.net/analogvj.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Lomz — Art × Technology" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AnalogVJ — Lomz" />
+  <meta name="twitter:description" content="AnalogVJ — a repurposed slide projector used as a live VJ tool for band performances. By Lomz." />
+  <meta name="twitter:image" content="https://lomz.net/assets/AnalogVJ-01.jpg" />
+
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <main>
+    <project-nav></project-nav>
+    <!-- HEADER: title left · body right -->
+    <section class="project container">
+      <div class="split-head">
+        <h1 class="about-lead display-md">AnalogVJ</h1>
+        <div class="about-body body-lg">
+          <p>I use an old slide projector to create visual effects for live band performances. The Retro Fusion VJ Projector is a blend of vintage aesthetics and modern tinkering — an old slide projector repurposed and given new life for live shows. By enabling the use of film rolls and printing my artwork onto transparent foils, the projector turns every gig into a mesmerizing visual journey. Every tweak and enhancement has one purpose: to elevate the band experience and create a unique synergy between music and visuals — where technology meets nostalgia and adds an extra layer of depth to the stage.</p>
+          <p>Premiere of <em>MAKURA NOTO</em>, a performance piece by Mariko Hori and PonTon (Igor Stangliczky &amp; Marko Jevtić): with PonTon's soundscape as the backdrop, Mariko Hori tells stories from her own dreams. PonTon are soundscape storytellers since 2008 (previously known as StJv band).</p>
+
+          <div class="project-links">
+            <span class="meta-label">Project links</span>
+            <div class="project-links-list">
+              <a href="http://ponton.band/" target="_blank" rel="noopener noreferrer">PonTon — have a listen ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA: 2-up grid, two YouTube videos then AnalogVJ-01..08 -->
+    <section class="project-media container">
+      <div class="media-grid">
+        <div class="media-item">
+          <iframe src="https://www.youtube.com/embed/Q8yQdTQifRE" title="AnalogVJ — live 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="media-item">
+          <iframe src="https://www.youtube.com/embed/gV4Fgo0CFNE" title="AnalogVJ — live 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <figure class="media-item"><img src="/assets/AnalogVJ-01.jpg" alt="AnalogVJ 1" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/AnalogVJ-02.jpg" alt="AnalogVJ 2" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/AnalogVJ-03.jpg" alt="AnalogVJ 3" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/AnalogVJ-04.jpg" alt="AnalogVJ 4" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/AnalogVJ-05.jpg" alt="AnalogVJ 5" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/AnalogVJ-06.jpg" alt="AnalogVJ 6" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/AnalogVJ-07.jpg" alt="AnalogVJ 7" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/AnalogVJ-08.jpg" alt="AnalogVJ 8" loading="lazy" /></figure>
+      </div>
+    </section>
+  </main>
+
+  <related-projects></related-projects>
+  <site-footer></site-footer>
+
+  <script src="/components/header.js" type="module"></script>
+  <script src="/components/footer.js" type="module"></script>
+  <script src="/components/related-projects.js" type="module"></script>
+</body>
+</html>

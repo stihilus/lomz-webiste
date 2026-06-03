@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kosmotomi — Lomz</title>
+  <meta name="description" content="Kosmotomi — a series by Lomz." />
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) { t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Kosmotomi — Lomz" />
+  <meta property="og:description" content="Kosmotomi — a series by Lomz." />
+  <meta property="og:image" content="https://lomz.net/assets/kosmotomi-01.jpg" />
+  <meta property="og:url" content="https://lomz.net/kosmotomi.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Lomz — Art × Technology" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kosmotomi — Lomz" />
+  <meta name="twitter:description" content="Kosmotomi — a series by Lomz." />
+  <meta name="twitter:image" content="https://lomz.net/assets/kosmotomi-01.jpg" />
+
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <main>
+    <project-nav></project-nav>
+    <!-- HEADER: title left · body right -->
+    <section class="project container">
+      <div class="split-head">
+        <h1 class="about-lead display-md">Kosmotomi</h1>
+        <div class="about-body body-lg">
+          <p>It is the form that one reaches from the state of not knowing. Upon realizing how potent the facts of being are, the focus lies entirely on the actuality of the journey — the pulse. Wandering from wonder to wonder, witnessing the unity of timelessness and all things. The approach of exerting the self onto the flow, in the everlasting tendency of relation to propagate in every entity, as holders of separate existences.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA: 2-up grid, kosmotomi-01..06 -->
+    <section class="project-media container">
+      <div class="media-grid">
+        <figure class="media-item"><img src="/assets/kosmotomi-01.jpg" alt="Kosmotomi 1" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/kosmotomi-02.jpg" alt="Kosmotomi 2" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/kosmotomi-03.jpg" alt="Kosmotomi 3" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/kosmotomi-04.jpg" alt="Kosmotomi 4" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/kosmotomi-05.jpg" alt="Kosmotomi 5" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/kosmotomi-06.jpg" alt="Kosmotomi 6" loading="lazy" /></figure>
+      </div>
+    </section>
+  </main>
+
+  <related-projects></related-projects>
+  <site-footer></site-footer>
+
+  <script src="/components/header.js" type="module"></script>
+  <script src="/components/footer.js" type="module"></script>
+  <script src="/components/related-projects.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tuneTracker — Lomz</title>
+  <meta name="description" content="tuneTracker — a minimalist web radio player designed for music discovery, by Lomz." />
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) { t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="tuneTracker — Lomz" />
+  <meta property="og:description" content="tuneTracker — a minimalist web radio player designed for music discovery, by Lomz." />
+  <meta property="og:image" content="https://lomz.net/assets/TuneTracker-01.jpg" />
+  <meta property="og:url" content="https://lomz.net/tunetracker.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Lomz — Art × Technology" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="tuneTracker — Lomz" />
+  <meta name="twitter:description" content="tuneTracker — a minimalist web radio player designed for music discovery, by Lomz." />
+  <meta name="twitter:image" content="https://lomz.net/assets/TuneTracker-01.jpg" />
+
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <main>
+    <project-nav></project-nav>
+    <!-- HEADER: title left · body right -->
+    <section class="project container">
+      <div class="split-head">
+        <h1 class="about-lead display-md">tuneTracker</h1>
+        <div class="about-body body-lg">
+          <p>TuneTracker is a minimalist web radio player designed for music discovery.</p>
+
+          <div class="project-links">
+            <span class="meta-label">Project links</span>
+            <div class="project-links-list">
+              <a href="https://stihilus.github.io/tuneTracker/" target="_blank" rel="noopener noreferrer">Try the app ↗</a>
+              <a href="https://github.com/stihilus/tuneTracker" target="_blank" rel="noopener noreferrer">GitHub — open source ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA: 2-up grid, TuneTracker-01..02 -->
+    <section class="project-media container">
+      <div class="media-grid">
+        <figure class="media-item"><img src="/assets/TuneTracker-01.jpg" alt="tuneTracker 1" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/TuneTracker-02.jpg" alt="tuneTracker 2" loading="lazy" /></figure>
+      </div>
+    </section>
+  </main>
+
+  <related-projects></related-projects>
+  <site-footer></site-footer>
+
+  <script src="/components/header.js" type="module"></script>
+  <script src="/components/footer.js" type="module"></script>
+  <script src="/components/related-projects.js" type="module"></script>
+</body>
+</html>

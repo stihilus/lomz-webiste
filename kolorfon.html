@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kolorfon — Lomz</title>
+  <meta name="description" content="Kolorfon — a gramophone that converts colors into sound. By Lomz." />
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) { t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Kolorfon — Lomz" />
+  <meta property="og:description" content="Kolorfon — a gramophone that converts colors into sound. By Lomz." />
+  <meta property="og:image" content="https://lomz.net/assets/kolorfon-01.jpg" />
+  <meta property="og:url" content="https://lomz.net/kolorfon.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Lomz — Art × Technology" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kolorfon — Lomz" />
+  <meta name="twitter:description" content="Kolorfon — a gramophone that converts colors into sound. By Lomz." />
+  <meta name="twitter:image" content="https://lomz.net/assets/kolorfon-01.jpg" />
+
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <main>
+    <project-nav></project-nav>
+    <!-- HEADER: title left · body right -->
+    <section class="project container">
+      <div class="split-head">
+        <h1 class="about-lead display-md">Kolorfon</h1>
+        <div class="about-body body-lg">
+          <p>I created the Kolorfon, a gramophone that converts colors into sound. The process involves reading the colors from three photocells using color sensors, digitizing the resulting signals with an Arduino board, and then sending them to a laptop. I wrote a program in Pure Data that converts the signals from the Arduino into MIDI signals, which are sent to Ableton Live to generate the sounds. For the installation, I made two Colorphones: one for rhythm and the other for melody. Visitors were able to create their own "records" and then listen to the resulting sounds — making unique musical compositions in a fun and interactive way.</p>
+
+          <div class="project-links">
+            <span class="meta-label">Project links</span>
+            <div class="project-links-list">
+              <a href="https://dejangrba.org/teaching/en/transmedia/exhibitions/2015-transsampler.php" target="_blank" rel="noopener noreferrer">Exhibition — Transsampler ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA: 2-up grid, YouTube first then kolorfon-01..05 -->
+    <section class="project-media container">
+      <div class="media-grid">
+        <div class="media-item">
+          <iframe src="https://www.youtube.com/embed/W1fO7k_BHX0" title="Kolorfon — installation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <figure class="media-item"><img src="/assets/kolorfon-01.jpg" alt="Kolorfon 1" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/kolorfon-02.jpg" alt="Kolorfon 2" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/kolorfon-03.jpg" alt="Kolorfon 3" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/kolorfon-04.jpg" alt="Kolorfon 4" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/kolorfon-05.jpg" alt="Kolorfon 5" loading="lazy" /></figure>
+      </div>
+    </section>
+  </main>
+
+  <related-projects></related-projects>
+  <site-footer></site-footer>
+
+  <script src="/components/header.js" type="module"></script>
+  <script src="/components/footer.js" type="module"></script>
+  <script src="/components/related-projects.js" type="module"></script>
+</body>
+</html>

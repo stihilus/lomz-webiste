@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presscyclage — Lomz</title>
+  <meta name="description" content="Presscyclage — an interactive installation that recycles printed media into sound and paper rolls. By Lomz." />
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) { t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Presscyclage — Lomz" />
+  <meta property="og:description" content="Presscyclage — an interactive installation that recycles printed media into sound and paper rolls. By Lomz." />
+  <meta property="og:image" content="https://lomz.net/assets/Presscyclage-01.jpg" />
+  <meta property="og:url" content="https://lomz.net/presscyclage.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Lomz — Art × Technology" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Presscyclage — Lomz" />
+  <meta name="twitter:description" content="Presscyclage — an interactive installation that recycles printed media into sound and paper rolls. By Lomz." />
+  <meta name="twitter:image" content="https://lomz.net/assets/Presscyclage-01.jpg" />
+
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <main>
+    <project-nav></project-nav>
+    <!-- HEADER: title left · body right -->
+    <section class="project container">
+      <div class="split-head">
+        <h1 class="about-lead display-md">Presscyclage</h1>
+        <div class="about-body body-lg">
+          <p>Vukašin's creative machinery uses printed media during its work to convert their content into an acoustic image and a paper roll. The production process involves a visitor as an active participant — the one who puts the selected parts of the printed media on a belt conveyed by electric engines. On its way, the belt passes underneath a webcam, which sends the picture of the current situation to a screen. At the end of the road, re-recorded images received from the web cameras are divided into four parts and processed again (PureData software). Each part reads the color, which the software then classifies into three basic colours according to the RGB scale. Some parts are used to start the rhythm, while the colors trigger different instruments. The sound pitch depends on the obtained color saturation. After passing the last stop and the corresponding sound "score", the paper is rolled and the rolls are pinned to the wall. Vukašin's production line — in which a visitor affects the change of signal/information — indicates our position in relation to the information released by the mass media. Our illusion that we have a choice of or control over information is hereby transferred, by the recycling process, into music that replaces the media noise.</p>
+          <p>Video from festival <em>SUTRA / TOMORROW</em> — a blend of art, technology, diversity and authenticity that, over three days, presents artists, concepts and projects exploring the connection between art, science and technology through talks, presentations and interactive workshops. SUTRA / TOMORROW is the initiative and support of the Belgrade Youth Centre to re-launch the art &amp; science festival in Belgrade.</p>
+
+          <div class="project-links">
+            <span class="meta-label">Project links</span>
+            <div class="project-links-list">
+              <a href="https://domomladine.org/festival-s-u-t-r-a/" target="_blank" rel="noopener noreferrer">Exhibition — SUTRA festival ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA: 2-up grid, YouTube first then Presscyclage-01..07 -->
+    <section class="project-media container">
+      <div class="media-grid">
+        <div class="media-item">
+          <iframe src="https://www.youtube.com/embed/0_CbiYqgh5Y" title="Presscyclage — installation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <figure class="media-item"><img src="/assets/Presscyclage-01.jpg" alt="Presscyclage 1" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Presscyclage-02.jpg" alt="Presscyclage 2" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Presscyclage-03.jpg" alt="Presscyclage 3" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Presscyclage-04.jpg" alt="Presscyclage 4" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Presscyclage-05.jpg" alt="Presscyclage 5" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Presscyclage-06.jpg" alt="Presscyclage 6" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Presscyclage-07.jpg" alt="Presscyclage 7" loading="lazy" /></figure>
+      </div>
+    </section>
+  </main>
+
+  <related-projects></related-projects>
+  <site-footer></site-footer>
+
+  <script src="/components/header.js" type="module"></script>
+  <script src="/components/footer.js" type="module"></script>
+  <script src="/components/related-projects.js" type="module"></script>
+</body>
+</html>

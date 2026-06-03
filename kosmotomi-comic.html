@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kosmotomi comic — Lomz</title>
+  <meta name="description" content="Kosmotomi — a comic by Lomz." />
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) { t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Kosmotomi comic — Lomz" />
+  <meta property="og:description" content="Kosmotomi — a comic by Lomz." />
+  <meta property="og:image" content="https://lomz.net/assets/kosmotomi-comic-01.jpg" />
+  <meta property="og:url" content="https://lomz.net/kosmotomi-comic.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Lomz — Art × Technology" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kosmotomi comic — Lomz" />
+  <meta name="twitter:description" content="Kosmotomi — a comic by Lomz." />
+  <meta name="twitter:image" content="https://lomz.net/assets/kosmotomi-comic-01.jpg" />
+
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <main>
+    <project-nav></project-nav>
+    <!-- HEADER: title left · body right -->
+    <section class="project container">
+      <div class="split-head">
+        <h1 class="about-lead display-md">Kosmotomi comic</h1>
+        <div class="about-body body-lg">
+          <p>Mathematical chaos can be explored in a very creative way. Pick a random number between 0 and 1, and the installation, using the iterative nonlinear dynamic function popularly referred to as the "logistic map", will produce a specific result — the onset of chaos. This result becomes a "seed" in the algorithm, which visualizes the result and also uses it to create music from it. If we change the logistic map parameters, the music will change, carrying the tune through predictable and unpredictable patterns — a sound that carries us through the mathematics of order and the mathematics of chaos, opening a door to a new and curious branch of mathematics.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA: 2-up grid, kosmotomi-comic-01..08 -->
+    <section class="project-media container">
+      <div class="media-grid">
+        <figure class="media-item"><img src="/assets/kosmotomi-comic-01.jpg" alt="Kosmotomi comic 1" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/kosmotomi-comic-02.jpg" alt="Kosmotomi comic 2" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/kosmotomi-comic-03.jpg" alt="Kosmotomi comic 3" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/kosmotomi-comic-04.jpg" alt="Kosmotomi comic 4" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/kosmotomi-comic-05.jpg" alt="Kosmotomi comic 5" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/kosmotomi-comic-06.jpg" alt="Kosmotomi comic 6" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/kosmotomi-comic-07.jpg" alt="Kosmotomi comic 7" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/kosmotomi-comic-08.jpg" alt="Kosmotomi comic 8" loading="lazy" /></figure>
+      </div>
+    </section>
+  </main>
+
+  <related-projects></related-projects>
+  <site-footer></site-footer>
+
+  <script src="/components/header.js" type="module"></script>
+  <script src="/components/footer.js" type="module"></script>
+  <script src="/components/related-projects.js" type="module"></script>
+</body>
+</html>

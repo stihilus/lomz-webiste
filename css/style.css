@@ -1,0 +1,584 @@
+/* ==========================================================================
+   LOMZ.NET — design system
+   Palette: ink #212124 · paper #E9E8E5 · signal #FF4C24
+   Type: Inter (single typeface — used for everything)
+   Sharp corners, flat, hairlines + whitespace.
+   ========================================================================== */
+
+:root {
+  --ink: #212124;
+  --paper: #E9E8E5;
+  --accent: #FF4C24;
+  --on-accent: #E9E8E5;
+  --ink-60: rgba(33, 33, 36, 0.6);
+  --ink-35: rgba(33, 33, 36, 0.35);
+  --ink-08: rgba(33, 33, 36, 0.08);
+  --hairline: var(--ink);              /* solid lines — black in light, off-white in dark */
+
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --sp-xs: 4px;
+  --sp-sm: 8px;
+  --sp-md: 16px;
+  --sp-lg: 24px;
+  --sp-xl: 40px;
+  --sp-2xl: 64px;
+  --sp-3xl: 96px;
+  --sp-4xl: 160px;
+
+  --container: 1280px;
+  --measure: 46rem;
+}
+
+/* Dark theme — invert ink/paper, accent stays the same */
+[data-theme="dark"] {
+  --ink: #E9E8E5;
+  --paper: #212124;
+  --ink-60: rgba(233, 232, 229, 0.6);
+  --ink-35: rgba(233, 232, 229, 0.35);
+  --ink-08: rgba(233, 232, 229, 0.08);
+  /* --hairline inherits var(--ink) from :root → off-white in dark mode */
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4em;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+body, site-header, site-footer, .project-thumb {
+  transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+/* ---------- Type ---------- */
+.display-lg { font-size: clamp(48px, 7vw, 80px); font-weight: 500; line-height: 1em; letter-spacing: -0.04em; }
+.display-md { font-size: clamp(32px, 4.5vw, 48px); font-weight: 500; line-height: 1.05em; letter-spacing: -0.03em; }
+h1, .h1 { font-size: clamp(32px, 4vw, 40px); font-weight: 500; line-height: 1.1em; letter-spacing: -0.03em; }
+h2, .h2 { font-size: 32px; font-weight: 500; line-height: 1.1em; letter-spacing: -0.03em; }
+h3, .h3 { font-size: 24px; font-weight: 500; line-height: 1.2em; letter-spacing: -0.02em; }
+.body-lg { font-size: 18px; line-height: 1.5em; letter-spacing: -0.01em; }
+.body-md { font-size: 16px; line-height: 1.5em; letter-spacing: -0.01em; }
+.body-sm { font-size: 14px; line-height: 1.4em; letter-spacing: -0.01em; }
+.caption {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.2em;
+  letter-spacing: 0.02em;
+  color: var(--ink-60);
+}
+.muted { color: var(--ink-60); }
+.accent { color: var(--accent); }
+
+a { color: inherit; }
+
+/* ---------- Layout ---------- */
+.container { width: 100%; max-width: var(--container); margin: 0 auto; padding-inline: 12px; }
+.section { padding-block: clamp(var(--sp-2xl), 8vw, var(--sp-3xl)); }
+
+/* ==========================================================================
+   HEADER  (site-header web component, light DOM)
+   ========================================================================== */
+site-header { display: block; position: sticky; top: 0; z-index: 100; background: var(--paper); border-bottom: 1px solid var(--hairline); }
+.site-nav { display: flex; align-items: center; justify-content: space-between; padding-block: var(--sp-md); }
+.site-nav .logo { display: inline-flex; align-items: center; color: var(--ink); text-decoration: none; transition: color 150ms ease; }
+.site-nav .logo svg { height: 20px; width: auto; display: block; }
+.site-nav .logo:hover { color: var(--accent); }
+.nav-links { display: flex; align-items: center; gap: var(--sp-lg); }
+.nav-links a {
+  font-size: 17px; font-weight: 500; letter-spacing: -0.01em;
+  text-decoration: none; color: var(--ink);
+  transition: color 150ms ease;
+}
+.nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--accent); }
+
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px;
+  padding: 0; margin: 0;
+  background: none; border: 0; cursor: pointer;
+  color: var(--ink);
+  transition: color 150ms ease;
+}
+.theme-toggle:hover { color: var(--accent); }
+.theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.theme-toggle svg { width: 18px; height: 18px; display: block; }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+/* ==========================================================================
+   FOOTER (site-footer web component)
+   ========================================================================== */
+site-footer { display: block; }
+.site-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;       /* content pinned to bottom */
+  min-height: 100vh;
+  border-top: 1px solid var(--hairline);
+  margin-top: var(--sp-2xl);
+  /* Theme-aware: footer adopts current theme tokens (white-on-black in dark,
+     near-black-on-off-white in light). Captions stay solid ink, not muted. */
+  --ink-60: var(--ink);
+}
+.footer-inner {
+  width: 100%;
+  max-width: none;                 /* full-bleed: ignore the 1280 container cap */
+  display: flex;
+  flex-direction: column;          /* stacked, left-aligned → bottom-left */
+  gap: var(--sp-2xl);
+  padding-block: var(--sp-2xl);
+}
+.footer-brand { display: flex; flex-direction: column; gap: var(--sp-sm); }
+.footer-logo { display: block; color: var(--ink); }
+.footer-logo svg { height: clamp(28px, 5vw, 44px); width: auto; display: block; }
+.footer-social { display: flex; flex-wrap: wrap; gap: var(--sp-md) var(--sp-lg); }
+.footer-social a {
+  font-size: 15px; font-weight: 500; letter-spacing: -0.01em;
+  text-decoration: none; color: var(--ink); transition: color 150ms ease;
+}
+.footer-social a:hover { color: var(--accent); }
+.footer-bottom {
+  display: flex; justify-content: space-between; gap: var(--sp-md); flex-wrap: wrap;
+  align-items: baseline;
+  border-top: 1px solid var(--hairline);
+  padding-top: var(--sp-lg);
+}
+.footer-email {
+  font-size: 15px; font-weight: 500; letter-spacing: -0.01em;
+  text-decoration: none; color: var(--ink);
+  transition: color 150ms ease;
+}
+.footer-email:hover { color: var(--accent); }
+
+/* ==========================================================================
+   INTRO / BIO
+   ========================================================================== */
+.intro { padding-top: clamp(var(--sp-2xl), 8vw, var(--sp-3xl)); padding-bottom: var(--sp-2xl); }
+.intro-lead {
+  max-width: 22ch;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 500;
+  line-height: 1.1em;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--sp-xl);
+}
+.intro-lead .accent { color: var(--accent); }
+.intro-body { max-width: var(--measure); }
+.intro-body p + p { margin-top: var(--sp-md); }
+/* Homepage lead is a sentence, not a short title — let it fill the left column. */
+.intro .split-head > :first-child { max-width: none; margin-bottom: 0; }
+
+/* Homepage metadata grid — recreates the editorial reference layout:
+   big "Explorer" on the left half, meta columns on the right half. */
+.meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-xl) var(--sp-2xl);
+  align-items: start;
+  margin-bottom: clamp(var(--sp-3xl), 11vw, 9rem);
+}
+.meta-explorer {
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.meta-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-lg) var(--sp-2xl);
+}
+.meta-col { display: flex; flex-direction: column; gap: var(--sp-lg); }
+.meta-item { display: flex; flex-direction: column; gap: var(--sp-xs); }
+.meta-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.02em; color: var(--ink); }
+.meta-value { font-size: 14px; line-height: 1.4em; letter-spacing: -0.01em; color: var(--ink); }
+
+/* ==========================================================================
+   FULL-WIDTH FEATURED SLIDER
+   ========================================================================== */
+.slider { margin-bottom: var(--sp-2xl); }
+.slider-viewport {
+  position: relative;
+  width: 100%;
+  height: clamp(320px, 56vw, 760px);
+  overflow: hidden;
+  background: var(--ink-08);
+}
+.slider-track {
+  display: flex;
+  height: 100%;
+  transition: transform 500ms ease;
+  will-change: transform;
+}
+.slide { flex: 0 0 100%; height: 100%; margin: 0; }
+.slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.slider-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 48px; height: 48px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--paper); color: var(--ink);
+  border: 1px solid var(--hairline); border-radius: 0;
+  font-size: 18px; line-height: 1; cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+.slider-btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.slider-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.slider-prev { left: var(--sp-lg); }
+.slider-next { right: var(--sp-lg); }
+
+.slider-caption {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--sp-md); padding-top: var(--sp-md);
+}
+.slider-name { font-size: 18px; font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+.slider-meta { white-space: nowrap; }
+.slider-dots { display: flex; gap: var(--sp-sm); }
+.slider-dot {
+  width: 8px; height: 8px; padding: 0; border: 0; cursor: pointer;
+  background: var(--ink); opacity: 0.25;
+  transition: opacity 150ms ease, background-color 150ms ease;
+}
+.slider-dot:hover { opacity: 0.6; }
+.slider-dot.active { background: var(--accent); opacity: 1; }
+
+/* ==========================================================================
+   SECTION LABEL  ("The latest explorations :")
+   ========================================================================== */
+.section-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: var(--sp-md); flex-wrap: wrap;
+  padding-top: var(--sp-2xl);
+  margin-bottom: var(--sp-xl);
+  border-top: 1px solid var(--hairline);
+}
+.section-head h2 { padding-top: var(--sp-lg); }
+
+/* ==========================================================================
+   FILTERS
+   ========================================================================== */
+.filters-bar { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-lg); flex-wrap: wrap; margin-bottom: var(--sp-xl); }
+.filters { display: flex; flex-wrap: wrap; gap: var(--sp-md) var(--sp-lg); }
+
+/* View switch (grid / index) */
+.view-switch { display: flex; gap: var(--sp-xs); }
+.view-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; padding: 0;
+  background: none; border: 0; cursor: pointer; color: var(--ink); opacity: 0.3;
+  transition: opacity 150ms ease;
+}
+.view-btn:hover { opacity: 0.6; }
+.view-btn.active { opacity: 1; }
+.view-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.view-btn svg { width: 16px; height: 16px; display: block; }
+
+.project-grid[hidden], .project-index[hidden] { display: none; }
+.filter {
+  font-family: var(--font-sans);
+  font-size: 15px; font-weight: 500; letter-spacing: -0.01em;
+  color: var(--ink);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+  text-underline-offset: 4px;
+  text-decoration-color: currentColor;
+  transition: color 150ms ease;
+}
+.filter:hover { text-decoration: underline; }
+.filter.active { color: var(--accent); text-decoration: underline; }
+.filter:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ==========================================================================
+   PROJECT GRID  (Pentagram-inspired packed grid)
+   ========================================================================== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;                          /* matches the page side padding */
+  align-items: start;
+}
+.project-card {
+  display: flex; flex-direction: column; gap: var(--sp-md);
+  text-decoration: none; color: var(--ink);
+}
+
+.project-thumb {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: var(--ink-08);
+  border: 1px solid var(--hairline);
+  overflow: hidden;
+  transition: background-color 200ms ease;
+}
+
+.project-thumb img.thumb-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  display: block; z-index: 0;
+}
+.project-thumb::after {
+  content: ''; position: absolute; inset: 0;
+  background: var(--accent);
+  opacity: 0; transition: opacity 200ms ease;
+  pointer-events: none; z-index: 1;
+}
+.thumb-index {
+  position: absolute; top: 12px; left: 14px; z-index: 2;
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.02em;
+  color: var(--ink-60); transition: color 200ms ease;
+}
+.thumb-cta {
+  position: absolute; inset: 0; z-index: 2;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; font-weight: 500; letter-spacing: -0.01em;
+  color: var(--on-accent);
+  opacity: 0; transition: opacity 200ms ease;
+}
+.project-card:hover .project-thumb::after { opacity: 1; }
+.project-card:hover .project-thumb { background: var(--accent); }
+.project-card:hover .thumb-cta { opacity: 1; }
+.project-card:hover .thumb-index { color: var(--on-accent); }
+
+.project-meta { display: flex; flex-direction: column; gap: var(--sp-sm); }
+.project-title { font-size: 18px; font-weight: 500; letter-spacing: -0.02em; }
+.project-card:hover .project-title { color: var(--accent); }
+.project-desc { color: var(--ink-60); }
+.project-cat { margin-top: var(--sp-xs); }
+
+/* ==========================================================================
+   INDEX (TABLE) VIEW
+   ========================================================================== */
+.project-index { border-top: 1px solid var(--hairline); }
+.index-row {
+  display: grid;
+  grid-template-columns: 1fr 2.8fr 1fr auto;
+  gap: var(--sp-lg);
+  align-items: baseline;
+  padding: var(--sp-sm) 0;
+  border-bottom: 1px solid var(--hairline);
+  text-decoration: none;
+  color: var(--ink);
+  transition: background-color 150ms ease, color 150ms ease;
+}
+.index-row:hover { background: var(--ink); color: var(--paper); }
+.index-title { font-size: 16px; font-weight: 500; letter-spacing: -0.01em; }
+.index-desc { font-size: 14px; opacity: 0.6; }
+.index-cat { font-size: 13px; }
+.index-year { font-size: 13px; text-align: right; }
+
+/* Hover preview — centered, 40% of screen */
+.index-preview {
+  position: fixed; top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(0.98);
+  width: 40vw; z-index: 60;
+  opacity: 0; pointer-events: none;
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+.index-preview.is-visible { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+.index-preview img { width: 100%; height: auto; display: block; }
+
+/* ==========================================================================
+   PROJECT DETAIL PAGE
+   ========================================================================== */
+.project { padding-top: clamp(var(--sp-2xl), 8vw, var(--sp-3xl)); padding-bottom: var(--sp-2xl); }
+
+.project-links { margin-top: var(--sp-xl); display: flex; flex-direction: column; gap: var(--sp-sm); }
+.project-links-list { display: flex; flex-direction: column; gap: var(--sp-xs); }
+.project-links a { width: fit-content; text-decoration: none; color: var(--ink); transition: color 150ms ease; }
+.project-links a:hover { color: var(--accent); }
+
+.media-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.media-item {
+  margin: 0; aspect-ratio: 3 / 2; overflow: hidden;
+  background: var(--ink-08);
+}
+.media-item img, .media-item iframe { width: 100%; height: 100%; display: block; border: 0; object-fit: cover; }
+
+/* ==========================================================================
+   PROJECT NAV (top of project detail pages — Prev · All work · Next)
+   ========================================================================== */
+project-nav { display: block; }
+.project-nav {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: var(--sp-md); flex-wrap: wrap;
+  padding-block: var(--sp-md);
+  border-bottom: 1px solid var(--hairline);
+  font-size: 14px; letter-spacing: -0.01em;
+}
+.project-nav a { color: var(--ink); text-decoration: none; transition: color 150ms ease; }
+.project-nav a:hover { color: var(--accent); }
+.project-nav-pair { display: inline-flex; gap: var(--sp-sm); align-items: baseline; }
+.project-nav-sep { color: var(--ink-60); }
+
+/* ==========================================================================
+   PROJECT TAGS (strip between project header and media)
+   ========================================================================== */
+project-tags { display: block; }
+.project-tags {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  padding-block: var(--sp-md);
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  margin-bottom: var(--sp-xl);
+}
+.project-tag {
+  font-size: 12px; letter-spacing: 0.02em;
+  padding: 4px 10px;
+  border: 1px solid var(--hairline);
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   RELATED PROJECTS (web component, used on project detail pages)
+   ========================================================================== */
+related-projects { display: block; }
+.related {
+  display: block;
+  border-top: 1px solid var(--hairline);
+  padding-block: clamp(var(--sp-2xl), 6vw, var(--sp-3xl));
+}
+.related-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: var(--sp-md); margin-bottom: var(--sp-xl);
+}
+.related-title { font-size: 24px; font-weight: 500; letter-spacing: -0.02em; }
+.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.related-card {
+  display: flex; flex-direction: column; gap: var(--sp-xs);
+  padding: var(--sp-md) 0;
+  border-top: 1px solid var(--hairline);
+  text-decoration: none; color: var(--ink);
+  transition: color 150ms ease;
+}
+.related-card:hover { color: var(--accent); }
+.related-thumb {
+  aspect-ratio: 4 / 5;
+  background: var(--ink-08);
+  overflow: hidden;
+  margin-bottom: var(--sp-md);
+}
+.related-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.related-name { font-size: 18px; font-weight: 500; letter-spacing: -0.02em; }
+.related-cat { color: var(--ink-60); }
+.related-arrow { margin-top: var(--sp-md); }
+
+@media (max-width: 640px) {
+  .media-grid { grid-template-columns: 1fr; }
+  .related-grid { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   ABOUT PAGE
+   ========================================================================== */
+.about { padding-top: clamp(var(--sp-2xl), 8vw, var(--sp-3xl)); }
+.about-lead { max-width: 18ch; margin-bottom: var(--sp-xl); }
+.about-body { max-width: var(--measure); }
+.about-body p + p { margin-top: var(--sp-md); }
+
+/* Title-left / text-right header — reusable across pages (about, project intros).
+   See design.md → Layout → "Title ↔ text pairing". */
+.split-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-xl) var(--sp-2xl);
+  align-items: start;
+}
+.split-head > :first-child { max-width: 14ch; margin: 0; }
+.split-head > :last-child { max-width: var(--measure); }
+@media (max-width: 768px) {
+  .split-head { grid-template-columns: 1fr; gap: var(--sp-lg); }
+  .split-head > :first-child { max-width: 18ch; }
+  .meta-grid { grid-template-columns: 1fr; gap: var(--sp-xl); margin-bottom: var(--sp-2xl); }
+  .index-row { grid-template-columns: 1fr auto auto; }
+  .index-desc { display: none; }
+  .index-preview { width: 72vw; }
+}
+
+.about-section { margin-top: var(--sp-3xl); }
+.about-heading {
+  font-size: 24px; font-weight: 500; letter-spacing: -0.02em;
+  padding-top: var(--sp-lg);
+  border-top: 1px solid var(--hairline);
+  margin-bottom: var(--sp-sm);
+}
+
+/* Get-in-touch — primary contact moment on the about page */
+.get-in-touch .get-title {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 500; letter-spacing: -0.03em;
+  line-height: 1.05em;
+}
+.get-body { display: flex; flex-direction: column; gap: var(--sp-md); }
+.get-email {
+  display: inline-flex; align-items: baseline; gap: 4px;
+  width: fit-content;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 500; letter-spacing: -0.03em;
+  line-height: 1.1em;
+  text-decoration: none; color: var(--ink);
+  transition: color 150ms ease;
+}
+.get-email:hover { color: var(--accent); }
+.get-email .get-arrow {
+  font-size: 0.5em; opacity: 0.7;
+  transition: transform 200ms ease, opacity 200ms ease;
+}
+.get-email:hover .get-arrow { opacity: 1; transform: translate(2px, -2px); }
+.get-tagline { font-size: 16px; color: var(--ink); max-width: 36ch; }
+.get-availability { color: var(--ink-60); }
+
+.entry {
+  display: grid;
+  grid-template-columns: 1.5fr 1.2fr auto;
+  gap: var(--sp-md);
+  align-items: baseline;
+  padding-block: var(--sp-sm);
+  border-bottom: 1px solid var(--hairline);
+}
+.entry-title { font-weight: 500; letter-spacing: -0.01em; }
+.entry-sub { color: var(--ink-60); }
+.entry-meta { display: inline-flex; align-items: baseline; gap: var(--sp-md); justify-content: flex-end; }
+.entry-date { color: var(--ink-60); white-space: nowrap; }
+.entry-links { display: inline-flex; gap: var(--sp-md); justify-content: flex-end; flex-wrap: wrap; }
+.entry-meta a, .entry-links a {
+  text-decoration: none; color: var(--ink); white-space: nowrap;
+  transition: color 150ms ease;
+}
+.entry-meta a:hover, .entry-links a:hover { color: var(--accent); }
+
+@media (max-width: 640px) {
+  .entry { grid-template-columns: 1fr; gap: var(--sp-xs); }
+  .entry-meta, .entry-links { justify-content: flex-start; }
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .project-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .container { padding-inline: var(--sp-sm); }
+  .project-grid { grid-template-columns: 1fr; }
+  .meta-cols { grid-template-columns: 1fr; }
+}

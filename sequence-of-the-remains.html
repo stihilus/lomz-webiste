@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sequence of the remains — Lomz</title>
+  <meta name="description" content="Sequence of the remains — an audiovisual installation using the logistic map to turn mathematical chaos into image and music. By Lomz." />
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) { t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Sequence of the remains — Lomz" />
+  <meta property="og:description" content="Sequence of the remains — an audiovisual installation using the logistic map to turn mathematical chaos into image and music. By Lomz." />
+  <meta property="og:image" content="https://lomz.net/assets/Sequenceoftheremains-01.jpg" />
+  <meta property="og:url" content="https://lomz.net/sequence-of-the-remains.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Lomz — Art × Technology" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sequence of the remains — Lomz" />
+  <meta name="twitter:description" content="Sequence of the remains — an audiovisual installation using the logistic map to turn mathematical chaos into image and music. By Lomz." />
+  <meta name="twitter:image" content="https://lomz.net/assets/Sequenceoftheremains-01.jpg" />
+
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <main>
+    <project-nav></project-nav>
+    <!-- HEADER: title left · body right -->
+    <section class="project container">
+      <div class="split-head">
+        <h1 class="about-lead display-md">Sequence of the remains</h1>
+        <div class="about-body body-lg">
+          <p>Mathematical chaos can be explored in a very creative way. Pick a random number between 0 and 1, and the installation, using the iterative nonlinear dynamic function popularly referred to as the "logistic map", will produce a specific result — the onset of chaos. This result becomes a "seed" in the algorithm, which visualizes the result and also uses it to create music from it. If we change the logistic map parameters, the music will change, carrying the tune through predictable and unpredictable patterns, making a sound that carries us through the mathematics of order and the mathematics of chaos — opening a door to a new and curious branch of mathematics.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA: 2-up grid, YouTube first then Sequenceoftheremains-01..05 -->
+    <section class="project-media container">
+      <div class="media-grid">
+        <div class="media-item">
+          <iframe src="https://www.youtube.com/embed/NuzNZmKnBGk" title="Sequence of the remains — installation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <figure class="media-item"><img src="/assets/Sequenceoftheremains-01.jpg" alt="Sequence of the remains 1" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Sequenceoftheremains-02.jpg" alt="Sequence of the remains 2" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Sequenceoftheremains-03.jpg" alt="Sequence of the remains 3" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Sequenceoftheremains-04.jpg" alt="Sequence of the remains 4" loading="lazy" /></figure>
+        <figure class="media-item"><img src="/assets/Sequenceoftheremains-05.jpg" alt="Sequence of the remains 5" loading="lazy" /></figure>
+      </div>
+    </section>
+  </main>
+
+  <related-projects></related-projects>
+  <site-footer></site-footer>
+
+  <script src="/components/header.js" type="module"></script>
+  <script src="/components/footer.js" type="module"></script>
+  <script src="/components/related-projects.js" type="module"></script>
+</body>
+</html>
