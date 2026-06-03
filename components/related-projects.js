@@ -74,11 +74,10 @@ class ProjectNav extends HTMLElement {
     const next = idx < PROJECTS.length - 1 ? PROJECTS[idx + 1] : PROJECTS[0];
     this.innerHTML = `
       <nav class="project-nav container" aria-label="Project navigation">
-        <a class="project-nav-back" href="./">← All work</a>
         <span class="project-nav-pair">
-          <a class="project-nav-link" href="${prev.slug}.html" rel="prev">← ${prev.name}</a>
+          <a class="project-nav-link" href="${prev.slug}.html" rel="prev">&lt; ${prev.name}</a>
           <span class="project-nav-sep" aria-hidden="true">·</span>
-          <a class="project-nav-link" href="${next.slug}.html" rel="next">${next.name} →</a>
+          <a class="project-nav-link" href="${next.slug}.html" rel="next">${next.name} &gt;</a>
         </span>
       </nav>
     `;

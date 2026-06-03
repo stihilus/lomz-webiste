@@ -418,10 +418,9 @@ site-footer { display: block; }
    ========================================================================== */
 project-nav { display: block; }
 .project-nav {
-  display: flex; justify-content: space-between; align-items: baseline;
+  display: flex; justify-content: flex-end; align-items: baseline;
   gap: var(--sp-md); flex-wrap: wrap;
   padding-block: var(--sp-md);
-  border-bottom: 1px solid var(--hairline);
   font-size: 14px; letter-spacing: -0.01em;
 }
 .project-nav a { color: var(--ink); text-decoration: none; transition: color 150ms ease; }
