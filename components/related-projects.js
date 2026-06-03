@@ -37,7 +37,6 @@ class RelatedProjects extends HTMLElement {
                 <div class="related-thumb"><img src="${p.cover}" alt="${p.name} cover" loading="lazy" /></div>
                 <span class="related-name">${p.name}</span>
                 <span class="related-cat caption">${p.meta}</span>
-                <span class="related-arrow caption">View ↗</span>
               </a>
             `).join('')}
           </div>
