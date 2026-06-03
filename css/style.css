@@ -58,7 +58,11 @@ body {
   line-height: 1.4em;
   letter-spacing: -0.01em;
   color: var(--ink);
-  background: var(--paper);
+  background-color: var(--paper);
+  background-image: url("../assets/Background.png");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -97,7 +101,7 @@ a { color: inherit; }
 /* ==========================================================================
    HEADER  (site-header web component, light DOM)
    ========================================================================== */
-site-header { display: block; position: sticky; top: 0; z-index: 100; background: var(--paper); border-bottom: 1px solid var(--hairline); }
+site-header { display: block; position: sticky; top: 0; z-index: 100; background: transparent; border-bottom: 1px solid var(--hairline); }
 .site-nav { display: flex; align-items: center; justify-content: space-between; padding-block: var(--sp-md); }
 .site-nav .logo { display: inline-flex; align-items: center; color: var(--ink); text-decoration: none; transition: color 150ms ease; }
 .site-nav .logo svg { height: 20px; width: auto; display: block; }
