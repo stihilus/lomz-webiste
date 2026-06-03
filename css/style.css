@@ -5,6 +5,12 @@
    Sharp corners, flat, hairlines + whitespace.
    ========================================================================== */
 
+@font-face {
+  font-family: "Takeaways";
+  src: url("../assets/Takeaways.ttf") format("truetype");
+  font-display: swap;
+}
+
 :root {
   --ink: #212124;
   --paper: #E9E8E5;
@@ -193,7 +199,8 @@ site-footer { display: block; }
   margin-bottom: clamp(var(--sp-3xl), 11vw, 9rem);
 }
 .meta-explorer {
-  font-size: clamp(40px, 6vw, 64px);
+  font-family: "Takeaways", var(--font-sans);
+  font-size: clamp(56px, 10vw, 120px);
   font-weight: 500;
   line-height: 1;
   letter-spacing: -0.03em;
@@ -227,7 +234,12 @@ site-footer { display: block; }
   will-change: transform;
 }
 .slide { flex: 0 0 100%; height: 100%; margin: 0; }
-.slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.slide img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: grayscale(100%) contrast(0.9) brightness(1.1);
+  transition: filter 300ms ease;
+}
+.slider:hover .slide img { filter: none; }
 
 .slider-btn {
   position: absolute; top: 50%; transform: translateY(-50%);
@@ -319,6 +331,13 @@ site-footer { display: block; }
 .project-card {
   display: flex; flex-direction: column; gap: var(--sp-md);
   text-decoration: none; color: var(--ink);
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+.project-card.is-revealed { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .project-card { opacity: 1; transform: none; transition: none; }
 }
 
 .project-thumb {
@@ -334,7 +353,10 @@ site-footer { display: block; }
   position: absolute; inset: 0;
   width: 100%; height: 100%; object-fit: cover;
   display: block; z-index: 0;
+  filter: grayscale(100%) contrast(0.9) brightness(1.1);
+  transition: filter 300ms ease;
 }
+.project-card:hover .project-thumb img.thumb-img { filter: none; }
 .project-thumb::after {
   content: ''; position: absolute; inset: 0;
   background: var(--accent);
@@ -353,10 +375,6 @@ site-footer { display: block; }
   color: var(--on-accent);
   opacity: 0; transition: opacity 200ms ease;
 }
-.project-card:hover .project-thumb::after { opacity: 1; }
-.project-card:hover .project-thumb { background: var(--accent); }
-.project-card:hover .thumb-cta { opacity: 1; }
-.project-card:hover .thumb-index { color: var(--on-accent); }
 
 .project-meta { display: flex; flex-direction: column; gap: var(--sp-sm); }
 .project-title { font-size: 18px; font-weight: 500; letter-spacing: -0.02em; }
@@ -488,7 +506,7 @@ related-projects { display: block; }
    ABOUT PAGE
    ========================================================================== */
 .about { padding-top: clamp(var(--sp-2xl), 8vw, var(--sp-3xl)); }
-.about-lead { max-width: 18ch; margin-bottom: var(--sp-xl); }
+.about-lead { font-family: "Takeaways", var(--font-sans); font-size: clamp(56px, 10vw, 120px); line-height: 1; max-width: 18ch; margin-bottom: var(--sp-xl); }
 .about-body { max-width: var(--measure); }
 .about-body p + p { margin-top: var(--sp-md); }
 
@@ -521,7 +539,9 @@ related-projects { display: block; }
 
 /* Get-in-touch — primary contact moment on the about page */
 .get-in-touch .get-title {
-  font-size: clamp(28px, 4vw, 40px);
+  font-family: "Takeaways", var(--font-sans);
+  font-size: clamp(56px, 10vw, 120px);
+  line-height: 1;
   font-weight: 500; letter-spacing: -0.03em;
   line-height: 1.05em;
 }

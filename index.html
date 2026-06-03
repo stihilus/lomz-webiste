@@ -9,7 +9,7 @@
     (function () {
       var t = null;
       try { t = localStorage.getItem('theme'); } catch (e) {}
-      if (!t) { t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+      if (!t) { t = 'light'; }
       document.documentElement.setAttribute('data-theme', t);
     })();
   </script>
@@ -614,6 +614,21 @@
       const hasFilter = !!document.querySelector(`.filter[data-filter="${initFilter}"]`);
       setFilter(hasFilter ? initFilter : 'all');
       setView(initView === 'index' ? 'index' : 'grid');
+    }
+
+    // On-scroll fade-up for project cards (small stagger per batch)
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        const intersecting = entries.filter((e) => e.isIntersecting);
+        intersecting.forEach((entry, i) => {
+          entry.target.style.transitionDelay = (i * 60) + 'ms';
+          entry.target.classList.add('is-revealed');
+          io.unobserve(entry.target);
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.project-card').forEach((card) => io.observe(card));
+    } else {
+      document.querySelectorAll('.project-card').forEach((c) => c.classList.add('is-revealed'));
     }
 
     // Index hover preview
