@@ -454,7 +454,6 @@ project-tags { display: block; }
 related-projects { display: block; }
 .related {
   display: block;
-  border-top: 1px solid var(--hairline);
   padding-block: clamp(var(--sp-2xl), 6vw, var(--sp-3xl));
 }
 .related-head {
