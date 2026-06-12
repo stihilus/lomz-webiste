@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scanner Simulator — Lomz</title>
+  <meta name="description" content="Scanner Simulator — an artistic take on scanning. Load an image, choose a speed, then drag and rotate it under the scan head to capture glitchy, smeared results. By Lomz." />
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) { t = 'light'; }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Scanner Simulator — Lomz" />
+  <meta property="og:description" content="Scanner Simulator — an artistic take on scanning. Load an image, choose a speed, then drag and rotate it under the scan head to capture glitchy, smeared results. By Lomz." />
+  <meta property="og:image" content="https://lomz.net/assets/scanner-simulator-03.jpg" />
+  <meta property="og:url" content="https://lomz.net/scanner-simulator.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Lomz — Art × Technology" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Scanner Simulator — Lomz" />
+  <meta name="twitter:description" content="Scanner Simulator — an artistic take on scanning. Load an image, choose a speed, then drag and rotate it under the scan head to capture glitchy, smeared results. By Lomz." />
+  <meta name="twitter:image" content="https://lomz.net/assets/scanner-simulator-03.jpg" />
+
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <main>
+    <project-nav></project-nav>
+    <!-- HEADER: title left · body right -->
+    <section class="project container">
+      <div class="split-head">
+        <h1 class="about-lead display-md">Scanner Simulator</h1>
+        <div class="about-body body-lg">
+          <p>An artistic take on the flatbed scanner. Load an image, choose a scan speed, then drag and rotate it under the moving scan head — the result captures the smearing, tearing and glitches you get when something moves mid-scan.</p>
+          <p>Pick an aspect ratio for the output, record the process as you play, and apply a handful of effects on top to push the final image further.</p>
+
+          <div class="project-links">
+            <span class="meta-label">Project links</span>
+            <div class="project-links-list">
+              <a href="https://stihilus.github.io/glitch-scanner/" target="_blank" rel="noopener noreferrer">Try the app ↗</a>
+              <a href="https://github.com/stihilus/glitch-scanner" target="_blank" rel="noopener noreferrer">GitHub — source ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA: videos first, then photo grid -->
+    <section class="project-media container">
+      <div class="media-grid">
+        <figure class="media-item"><video src="./assets/scanner-simulator-video-01.webm" autoplay loop muted playsinline></video></figure>
+        <figure class="media-item"><video src="./assets/scanner-simulator-video-02.webm" autoplay loop muted playsinline></video></figure>
+        <figure class="media-item"><iframe src="https://www.youtube.com/embed/M6PuMFkdtFc" title="Scanner Simulator — walkthrough" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></figure>
+        <figure class="media-item"><img src="./assets/scanner-simulator-01.jpg" alt="Scanner Simulator 1" loading="lazy" /></figure>
+        <figure class="media-item"><img src="./assets/scanner-simulator-02.jpg" alt="Scanner Simulator 2" loading="lazy" /></figure>
+        <figure class="media-item"><img src="./assets/scanner-simulator-03.jpg" alt="Scanner Simulator 3" loading="lazy" /></figure>
+        <figure class="media-item"><img src="./assets/scanner-simulator-04.jpg" alt="Scanner Simulator 4" loading="lazy" /></figure>
+        <figure class="media-item"><img src="./assets/scanner-simulator-05.jpg" alt="Scanner Simulator 5" loading="lazy" /></figure>
+      </div>
+    </section>
+  </main>
+
+  <related-projects></related-projects>
+  <site-footer></site-footer>
+
+  <script src="./components/header.js" type="module"></script>
+  <script src="./components/footer.js" type="module"></script>
+  <script src="./components/related-projects.js" type="module"></script>
+</body>
+</html>

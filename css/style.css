@@ -433,7 +433,7 @@ site-footer { display: block; }
   margin: 0; aspect-ratio: 3 / 2; overflow: hidden;
   background: var(--ink-08);
 }
-.media-item img, .media-item iframe { width: 100%; height: 100%; display: block; border: 0; object-fit: cover; }
+.media-item img, .media-item iframe, .media-item video { width: 100%; height: 100%; display: block; border: 0; object-fit: cover; }
 
 /* ==========================================================================
    PROJECT NAV (top of project detail pages — Prev · All work · Next)

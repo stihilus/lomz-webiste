@@ -5,6 +5,7 @@
 
 export const PROJECTS = [
   { slug: 'block-states',                 name: 'Block States',                  category: 'game',       meta: 'Game · 2025',            cover: 'assets/block-states-01.jpg',                 tags: ['Godot', 'Blender', 'Game', '3D'] },
+  { slug: 'scanner-simulator',            name: 'Scanner Simulator',             category: 'tool',       meta: 'Tool · 2026',            cover: 'assets/scanner-simulator-03.jpg',            tags: ['Web', 'Image', 'Interactive', 'Glitch', 'Open Source'] },
   { slug: 'crosswords',                   name: 'Crosswords',                    category: 'tool',       meta: 'Tool · 2026',            cover: 'assets/crosswords-01.jpg',                   tags: ['p5.js', 'Music', 'Interactive', 'Web'] },
   { slug: 'dithercam',                    name: 'DitherCam',                     category: 'tool',       meta: 'Tool · 2025',            cover: 'assets/ditherCam-01.jpg',                    tags: ['Web', 'Camera', 'Real-time', 'Dithering', 'Open Source'] },
   { slug: 'ditherapp',                    name: 'DitherApp',                     category: 'app',        meta: 'Dithering · 2023',       cover: 'assets/DitherApp-01.jpg',                    tags: ['Web', 'Image', 'Dithering', 'Open Source'] },
