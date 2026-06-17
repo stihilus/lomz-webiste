@@ -1,6 +1,6 @@
 /* ==========================================================================
    LOMZ.NET — design system
-   Palette: ink #212124 · paper #E9E8E5 · signal #FF4C24
+   Palette: ink #212124 · paper #E9E8E5 · signal #0000EE
    Type: Inter (single typeface — used for everything)
    Sharp corners, flat, hairlines + whitespace.
    ========================================================================== */
@@ -12,13 +12,13 @@
 }
 
 :root {
-  --ink: #212124;
-  --paper: #E9E8E5;
-  --accent: #FF4C24;
-  --on-accent: #E9E8E5;
-  --ink-60: rgba(33, 33, 36, 0.6);
-  --ink-35: rgba(33, 33, 36, 0.35);
-  --ink-08: rgba(33, 33, 36, 0.08);
+  --ink: #000000;
+  --paper: #FFFFFF;
+  --accent: #0000EE;
+  --on-accent: #FFFFFF;
+  --ink-60: rgba(0, 0, 0, 0.6);
+  --ink-35: rgba(0, 0, 0, 0.35);
+  --ink-08: rgba(0, 0, 0, 0.08);
   --hairline: var(--ink);              /* solid lines — black in light, off-white in dark */
 
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
@@ -37,13 +37,14 @@
   --measure: 46rem;
 }
 
-/* Dark theme — invert ink/paper, accent stays the same */
+/* Dark theme — invert ink/paper, lift the blue so it stays readable on dark */
 [data-theme="dark"] {
-  --ink: #E9E8E5;
-  --paper: #212124;
-  --ink-60: rgba(233, 232, 229, 0.6);
-  --ink-35: rgba(233, 232, 229, 0.35);
-  --ink-08: rgba(233, 232, 229, 0.08);
+  --ink: #DEDEDE;
+  --paper: #1E1E1E;
+  --accent: #6E6EFF;
+  --ink-60: rgba(222, 222, 222, 0.6);
+  --ink-35: rgba(222, 222, 222, 0.35);
+  --ink-08: rgba(222, 222, 222, 0.08);
   /* --hairline inherits var(--ink) from :root → off-white in dark mode */
 }
 
@@ -59,11 +60,9 @@ body {
   letter-spacing: -0.01em;
   color: var(--ink);
   background-color: var(--paper);
-  background-image: url("../assets/Background.png");
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: 100% auto;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  text-rendering: optimizeSpeed;
 }
 
 body, site-header, site-footer, .project-thumb {
@@ -83,16 +82,26 @@ h3, .h3 { font-size: 24px; font-weight: 500; line-height: 1.2em; letter-spacing:
 .body-sm { font-size: 14px; line-height: 1.4em; letter-spacing: -0.01em; }
 .caption {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 1.2em;
-  letter-spacing: 0.02em;
-  color: var(--ink-60);
+  line-height: 18px;
+  letter-spacing: 0;
+  color: var(--ink);
 }
 .muted { color: var(--ink-60); }
 .accent { color: var(--accent); }
 
-a { color: inherit; }
+a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+a:hover { text-decoration: underline; }
+
+/* Wrapper-style links — no underline (they wrap cards/thumbnails/logos) */
+.site-nav .logo,
+.footer-logo,
+.project-card,
+.related-card,
+.index-row,
+.slide,
+.thumb-cta { text-decoration: none; color: inherit; }
 
 /* ---------- Layout ---------- */
 .container { width: 100%; max-width: var(--container); margin: 0 auto; padding-inline: 12px; }
@@ -109,10 +118,10 @@ site-header { display: block; position: sticky; top: 0; z-index: 100; background
 .nav-links { display: flex; align-items: center; gap: var(--sp-lg); }
 .nav-links a {
   font-size: 17px; font-weight: 500; letter-spacing: -0.01em;
-  text-decoration: none; color: var(--ink);
+  color: var(--accent);
   transition: color 150ms ease;
 }
-.nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--accent); }
+.nav-links a[aria-current="page"] { color: var(--accent); }
 
 .theme-toggle {
   display: inline-flex; align-items: center; justify-content: center;
@@ -135,45 +144,33 @@ site-header { display: block; position: sticky; top: 0; z-index: 100; background
    ========================================================================== */
 site-footer { display: block; }
 .site-footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;       /* content pinned to bottom */
-  min-height: 100vh;
   border-top: 1px solid var(--hairline);
   margin-top: var(--sp-2xl);
-  /* Theme-aware: footer adopts current theme tokens (white-on-black in dark,
-     near-black-on-off-white in light). Captions stay solid ink, not muted. */
+  padding-block: var(--sp-lg);
   --ink-60: var(--ink);
 }
-.footer-inner {
+.footer-table {
   width: 100%;
-  max-width: none;                 /* full-bleed: ignore the 1280 container cap */
-  display: flex;
-  flex-direction: column;          /* stacked, left-aligned → bottom-left */
-  gap: var(--sp-2xl);
-  padding-block: var(--sp-2xl);
+  max-width: 1024px;
+  border-collapse: collapse;
+  margin: 0;
 }
-.footer-brand { display: flex; flex-direction: column; gap: var(--sp-sm); }
-.footer-logo { display: block; color: var(--ink); }
-.footer-logo svg { height: clamp(28px, 5vw, 44px); width: auto; display: block; }
-.footer-social { display: flex; flex-wrap: wrap; gap: var(--sp-md) var(--sp-lg); }
-.footer-social a {
-  font-size: 15px; font-weight: 500; letter-spacing: -0.01em;
-  text-decoration: none; color: var(--ink); transition: color 150ms ease;
+.footer-table tr td { vertical-align: top; padding: 0; }
+.footer-table tr td:first-of-type { width: 50%; padding-right: 20px; }
+.footer-table p,
+.footer-table ul {
+  font-size: 16px;
+  line-height: 18px;
+  margin: 18px 0;
+  letter-spacing: 0;
 }
-.footer-social a:hover { color: var(--accent); }
-.footer-bottom {
-  display: flex; justify-content: space-between; gap: var(--sp-md); flex-wrap: wrap;
-  align-items: baseline;
-  border-top: 1px solid var(--hairline);
-  padding-top: var(--sp-lg);
+.footer-table ul { list-style: none; padding: 0; }
+.footer-table strong { font-weight: 700; }
+.footer-table a { color: var(--accent); text-decoration: underline; }
+@media (max-width: 640px) {
+  .footer-table, .footer-table tbody, .footer-table tr, .footer-table td { display: block; width: 100%; }
+  .footer-table tr td:first-of-type { padding-right: 0; }
 }
-.footer-email {
-  font-size: 15px; font-weight: 500; letter-spacing: -0.01em;
-  text-decoration: none; color: var(--ink);
-  transition: color 150ms ease;
-}
-.footer-email:hover { color: var(--accent); }
 
 /* ==========================================================================
    INTRO / BIO
@@ -240,7 +237,7 @@ site-footer { display: block; }
 .slide { flex: 0 0 100%; height: 100%; margin: 0; }
 .slide img {
   width: 100%; height: 100%; object-fit: cover; display: block;
-  filter: grayscale(100%) contrast(0.9) brightness(1.1);
+  filter: url(#dither);
   transition: filter 300ms ease;
 }
 .slider:hover .slide img { filter: none; }
@@ -357,7 +354,7 @@ site-footer { display: block; }
   position: absolute; inset: 0;
   width: 100%; height: 100%; object-fit: cover;
   display: block; z-index: 0;
-  filter: grayscale(100%) contrast(0.9) brightness(1.1);
+  filter: url(#dither);
   transition: filter 300ms ease;
 }
 .project-card:hover .project-thumb img.thumb-img { filter: none; }
@@ -381,9 +378,12 @@ site-footer { display: block; }
 }
 
 .project-meta { display: flex; flex-direction: column; gap: var(--sp-sm); }
-.project-title { font-size: 18px; font-weight: 500; letter-spacing: -0.02em; }
-.project-card:hover .project-title { color: var(--accent); }
-.project-desc { color: var(--ink-60); }
+.project-title {
+  font-size: 18px; font-weight: 500; letter-spacing: -0.02em;
+  text-underline-offset: 4px;
+}
+.project-card:hover .project-title { text-decoration: underline; }
+.project-desc { color: var(--ink); }
 .project-cat { margin-top: var(--sp-xs); }
 
 /* ==========================================================================
@@ -403,9 +403,9 @@ site-footer { display: block; }
 }
 .index-row:hover { background: var(--ink); color: var(--paper); }
 .index-title { font-size: 16px; font-weight: 500; letter-spacing: -0.01em; }
-.index-desc { font-size: 14px; opacity: 0.6; }
-.index-cat { font-size: 13px; }
-.index-year { font-size: 13px; text-align: right; }
+.index-desc { font-size: 16px; line-height: 18px; }
+.index-cat { font-size: 16px; }
+.index-year { font-size: 16px; text-align: right; }
 
 /* Hover preview — centered, 40% of screen */
 .index-preview {
@@ -425,8 +425,8 @@ site-footer { display: block; }
 
 .project-links { margin-top: var(--sp-xl); display: flex; flex-direction: column; gap: var(--sp-sm); }
 .project-links-list { display: flex; flex-direction: column; gap: var(--sp-xs); }
-.project-links a { width: fit-content; text-decoration: none; color: var(--ink); transition: color 150ms ease; }
-.project-links a:hover { color: var(--accent); }
+.project-links a { width: fit-content; color: var(--accent); }
+.project-links a:hover { text-decoration: underline; }
 
 .media-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
 .media-item {
@@ -445,8 +445,7 @@ project-nav { display: block; }
   padding-block: var(--sp-md);
   font-size: 14px; letter-spacing: -0.01em;
 }
-.project-nav a { color: var(--ink); text-decoration: none; transition: color 150ms ease; }
-.project-nav a:hover { color: var(--accent); }
+.project-nav a { color: var(--accent); }
 .project-nav-pair { display: inline-flex; gap: var(--sp-sm); align-items: baseline; }
 .project-nav-sep { color: var(--ink-60); }
 
@@ -556,10 +555,10 @@ related-projects { display: block; }
   font-size: clamp(28px, 4vw, 44px);
   font-weight: 500; letter-spacing: -0.03em;
   line-height: 1.1em;
-  text-decoration: none; color: var(--ink);
+  color: var(--accent);
   transition: color 150ms ease;
 }
-.get-email:hover { color: var(--accent); }
+.get-email:hover { text-decoration: underline; }
 .get-email .get-arrow {
   font-size: 0.5em; opacity: 0.7;
   transition: transform 200ms ease, opacity 200ms ease;
@@ -582,10 +581,8 @@ related-projects { display: block; }
 .entry-date { color: var(--ink-60); white-space: nowrap; }
 .entry-links { display: inline-flex; gap: var(--sp-md); justify-content: flex-end; flex-wrap: wrap; }
 .entry-meta a, .entry-links a {
-  text-decoration: none; color: var(--ink); white-space: nowrap;
-  transition: color 150ms ease;
+  color: var(--accent); white-space: nowrap;
 }
-.entry-meta a:hover, .entry-links a:hover { color: var(--accent); }
 
 @media (max-width: 640px) {
   .entry { grid-template-columns: 1fr; gap: var(--sp-xs); }

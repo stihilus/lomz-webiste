@@ -32,6 +32,21 @@
 </head>
 <body>
 
+  <!-- Dither filter — applied to landing-page images before hover -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <filter id="dither" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="1.5" numOctaves="1" seed="3" stitchTiles="stitch" result="rawNoise"/>
+      <feColorMatrix in="rawNoise" type="matrix" values=".33 .33 .33 0 0  .33 .33 .33 0 0  .33 .33 .33 0 0  0 0 0 0 1" result="noise"/>
+      <feColorMatrix in="SourceGraphic" type="matrix" values=".33 .33 .33 0 0  .33 .33 .33 0 0  .33 .33 .33 0 0  0 0 0 1 0" result="gray"/>
+      <feComposite in="gray" in2="noise" operator="arithmetic" k1="0" k2="1" k3="1" k4="-.5"/>
+      <feComponentTransfer>
+        <feFuncR type="discrete" tableValues="0 1"/>
+        <feFuncG type="discrete" tableValues="0 1"/>
+        <feFuncB type="discrete" tableValues="0 1"/>
+      </feComponentTransfer>
+    </filter>
+  </svg>
+
   <site-header></site-header>
 
   <main>
@@ -62,7 +77,7 @@
 
       <!-- Title left / body right -->
       <div class="split-head">
-        <p class="intro-lead">I'm Vukasin aka Lomz, explorer focusing on the intersection of art and technology<span class="accent">.</span></p>
+        <p class="intro-lead">I'm Vukasin aka Lomz, explorer focusing on the intersection of art and technology.</p>
         <div class="intro-body body-lg">
           <p>With a background in creative photography and years of experience in product design, NFTs, and multimedia art, I like to blur the lines between visual storytelling and digital innovation. From building crypto wallets and NFT platforms to crafting generative art on fx(hash), my work spans across design systems, experimental code, and sound.</p>
           <p>I'm currently designing at Peer, and before that, I helped shape products at DeFi Saver and XDEFI Wallet.</p>
