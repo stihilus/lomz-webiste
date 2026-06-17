@@ -1,7 +1,7 @@
 // Related-projects, project-tags, project-nav web components.
 // All three consume the shared project catalog from /data/projects.js.
 
-import { PROJECTS, shuffle } from '../data/projects.js';
+import { PROJECTS, shuffle, metaOf } from '../data/projects.js';
 
 // Derive the current project slug from the URL's last path segment.
 // Works at any subpath (e.g. /lomz-webiste/dithercam.html on GitHub Pages) and
@@ -36,7 +36,7 @@ class RelatedProjects extends HTMLElement {
               <a class="related-card" href="${p.slug}.html">
                 <div class="related-thumb"><img src="${p.cover}" alt="${p.name} cover" loading="lazy" /></div>
                 <span class="related-name">${p.name}</span>
-                <span class="related-cat caption">${p.meta}</span>
+                <span class="related-cat caption">${metaOf(p)}</span>
               </a>
             `).join('')}
           </div>
