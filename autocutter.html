@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autocutter — Lomz</title>
+  <meta name="description" content="Autocutter — a small web tool for generating print compositions from images. Upload a picture, cut it into irregular pieces, arrange them in a spiral. By Lomz." />
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) { t = 'light'; }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Autocutter — Lomz" />
+  <meta property="og:description" content="Autocutter — a small web tool for generating print compositions from images. Upload a picture, cut it into irregular pieces, arrange them in a spiral. By Lomz." />
+  <meta property="og:image" content="https://lomz.net/assets/autocutter-01.jpg" />
+  <meta property="og:url" content="https://lomz.net/autocutter.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Lomz — Art × Technology" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Autocutter — Lomz" />
+  <meta name="twitter:description" content="Autocutter — a small web tool for generating print compositions from images. Upload a picture, cut it into irregular pieces, arrange them in a spiral. By Lomz." />
+  <meta name="twitter:image" content="https://lomz.net/assets/autocutter-01.jpg" />
+
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <main>
+    <project-nav></project-nav>
+    <!-- HEADER: title left · body right -->
+    <section class="project container">
+      <div class="split-head">
+        <h1 class="about-lead display-md">Autocutter</h1>
+        <div class="about-body body-lg">
+          <p>A small web tool for generating print compositions from images. Upload an image and Autocutter slices it into irregular pieces, then lays them out in a spiral on paper.</p>
+          <p>Tweak the number of cuts, aspect ratio (A4 / 4:5), padding and background. Add text on top, and apply effects — black &amp; white, threshold, dither, posterize. Every result is bound to a seed, so you can save and share the exact composition you made.</p>
+
+          <div class="project-links">
+            <span class="meta-label">Project links</span>
+            <div class="project-links-list">
+              <a href="https://stihilus.github.io/autocutter/" target="_blank" rel="noopener noreferrer">Try the app ↗</a>
+              <a href="https://github.com/stihilus/autocutter" target="_blank" rel="noopener noreferrer">GitHub — source ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA: photo grid, autocutter-02..05 (cover is autocutter-01) -->
+    <section class="project-media container">
+      <div class="media-grid">
+        <figure class="media-item"><img src="./assets/autocutter-02.jpg" alt="Autocutter 2" loading="lazy" /></figure>
+        <figure class="media-item"><img src="./assets/autocutter-03.jpg" alt="Autocutter 3" loading="lazy" /></figure>
+        <figure class="media-item"><img src="./assets/autocutter-04.jpg" alt="Autocutter 4" loading="lazy" /></figure>
+        <figure class="media-item"><img src="./assets/autocutter-05.jpg" alt="Autocutter 5" loading="lazy" /></figure>
+      </div>
+    </section>
+  </main>
+
+  <related-projects></related-projects>
+  <site-footer></site-footer>
+
+  <script src="./components/header.js" type="module"></script>
+  <script src="./components/footer.js" type="module"></script>
+  <script src="./components/related-projects.js" type="module"></script>
+</body>
+</html>
