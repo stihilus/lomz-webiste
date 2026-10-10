@@ -2,7 +2,8 @@
 // Consumed by:
 //   - homepage slider, project grid, and index view (index.html)
 //   - <related-projects>, <project-tags>, <project-nav> on detail pages (components/related-projects.js)
-// To add a project: append an entry here and create the detail page. No HTML edits needed.
+// To add a project: append an entry here and create the detail page. No HTML edits needed,
+// except adding the new page's URL to /sitemap.xml.
 
 export const PROJECTS = [
   { slug: 'block-states',                    name: 'Block States',                    category: 'game',       cat: 'Game',            year: 2025, cover: 'assets/block-states-01.jpg',                    desc: 'A puzzle game about stacking and clearing blocks across shifting states.',                                          tags: ['Godot', 'Blender', 'Game', '3D'] },
