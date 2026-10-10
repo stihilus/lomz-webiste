@@ -569,7 +569,7 @@ related-projects { display: block; }
 
 .entry {
   display: grid;
-  grid-template-columns: 1.5fr 1.2fr auto;
+  grid-template-columns: 1.5fr 1.2fr 14rem;
   gap: var(--sp-md);
   align-items: baseline;
   padding-block: var(--sp-sm);
