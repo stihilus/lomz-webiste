@@ -1,3 +1,9 @@
+import { LOG, formatLogDate } from '../data/log.js';
+
+const belgradeTime = () => new Intl.DateTimeFormat('en-GB', {
+  hour: '2-digit', minute: '2-digit', hourCycle: 'h23', timeZone: 'Europe/Belgrade',
+}).format(new Date());
+
 class SiteFooter extends HTMLElement {
   connectedCallback() {
     const year = new Date().getFullYear();
@@ -9,7 +15,7 @@ class SiteFooter extends HTMLElement {
               <tr>
                 <td class="footer-cell-brand">
                   <p><strong>Lomz</strong><br>Vukasin Stancevic — explorer at the intersection of art and technology.<br>Product design, generative art, multimedia.</p>
-                  <p>Belgrade, Serbia<br>© ${year}</p>
+                  <p>Belgrade, Serbia · <span class="footer-clock">${belgradeTime()}</span><br>© ${year} · <a href="./log.html">updated ${formatLogDate(LOG[0].date)}</a></p>
                   <p>
                     <a href="mailto:stihilus@gmail.com">stihilus@gmail.com</a> —
                     <a href="https://www.instagram.com/lomz.art/" target="_blank" rel="noopener noreferrer">Instagram</a> —
@@ -20,6 +26,7 @@ class SiteFooter extends HTMLElement {
                   <ul>
                     <li><a href="./">Work</a></li>
                     <li><a href="./about.html">About</a></li>
+                    <li><a href="./log.html">Log</a></li>
                     <li>&nbsp;</li>
                     <li><a href="https://www.behance.net/lomz" target="_blank" rel="noopener noreferrer">Behance</a></li>
                     <li><a href="https://dribbble.com/lomzart" target="_blank" rel="noopener noreferrer">Dribbble</a></li>
@@ -34,6 +41,13 @@ class SiteFooter extends HTMLElement {
         </div>
       </footer>
     `;
+
+    const clock = this.querySelector('.footer-clock');
+    this.timer = setInterval(() => { clock.textContent = belgradeTime(); }, 15000);
+  }
+
+  disconnectedCallback() {
+    clearInterval(this.timer);
   }
 }
 customElements.define('site-footer', SiteFooter);

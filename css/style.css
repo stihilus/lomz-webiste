@@ -584,8 +584,18 @@ related-projects { display: block; }
   color: var(--accent); white-space: nowrap;
 }
 
+.log-row {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: var(--sp-md);
+  align-items: baseline;
+  padding-block: var(--sp-sm);
+  border-bottom: 1px solid var(--hairline);
+}
+.log-date { color: var(--ink-60); white-space: nowrap; }
+
 @media (max-width: 640px) {
-  .entry { grid-template-columns: 1fr; gap: var(--sp-xs); }
+  .entry, .log-row { grid-template-columns: 1fr; gap: var(--sp-xs); }
   .entry-meta, .entry-links { justify-content: flex-start; }
 }
 

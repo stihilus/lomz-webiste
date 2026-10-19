@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log — Lomz</title>
+  <meta name="description" content="Log — what's new on lomz.net and what Vukasin aka Lomz is up to right now." />
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) { t = 'light'; }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Log — Lomz" />
+  <meta property="og:description" content="Log — what's new on lomz.net and what Vukasin aka Lomz is up to right now." />
+  <meta property="og:image" content="https://lomz.net/assets/home-screen-slider-01.jpg" />
+  <meta property="og:url" content="https://lomz.net/log.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Lomz — Art × Technology" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Log — Lomz" />
+  <meta name="twitter:description" content="Log — what's new on lomz.net and what Vukasin aka Lomz is up to right now." />
+  <meta name="twitter:image" content="https://lomz.net/assets/home-screen-slider-01.jpg" />
+
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <main>
+    <section class="about container">
+      <div class="split-head">
+        <h1 class="about-lead display-md">Log</h1>
+        <div class="about-body body-lg">
+          <p>Now: leading design and product at <strong>Wisp</strong>. By night I'm exploring what AI makes possible and building the ideas I've been collecting for years.</p>
+          <p>Below, a dated list of what changed here and around it, newest first.</p>
+        </div>
+      </div>
+
+      <div class="about-section">
+        <h2 class="about-heading">Changelog</h2>
+        <div id="log-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <site-footer></site-footer>
+
+  <script src="./components/header.js" type="module"></script>
+  <script src="./components/footer.js" type="module"></script>
+
+  <!-- Render the changelog from the shared log -->
+  <script type="module">
+    import { LOG, formatLogDate } from './data/log.js';
+
+    document.getElementById('log-list').innerHTML = LOG.map((e) => `
+      <div class="log-row">
+        <span class="caption log-date">${formatLogDate(e.date)}</span>
+        <span class="log-text">${e.href ? `<a href="${e.href}">${e.text}</a>` : e.text}</span>
+      </div>
+    `).join('');
+  </script>
+</body>
+</html>
