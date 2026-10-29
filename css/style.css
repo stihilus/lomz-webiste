@@ -389,6 +389,7 @@ site-footer { display: block; }
 
 /* Generative art archive: square artworks */
 .project-grid--square .project-thumb { aspect-ratio: 1 / 1; }
+.archive-intro { padding-bottom: var(--sp-xl); }
 .archive-hint { margin-bottom: var(--sp-lg); }
 .archive-credit { margin-top: var(--sp-xl); }
 

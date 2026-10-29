@@ -1,7 +1,7 @@
 // Generates fxhash/<slug>/index.html (the page around each live piece) for every work in data/fxhash.js.
 // Run from the repo root:  node scripts/build-works.mjs
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
-import { FXHASH } from '../data/fxhash.js';
+import { FXHASH, PEOPLE } from '../data/fxhash.js';
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const monthYear = (iso) => `${MONTHS[Number(iso.slice(5, 7)) - 1]} ${iso.slice(0, 4)}`;
@@ -17,7 +17,11 @@ function techOf(slug) {
 
 function render(w, prev, next) {
   const tech = techOf(w.slug);
-  const meta = [monthYear(w.date), `${w.supply} editions`, tech, w.with ? `with ${w.with}` : null].filter(Boolean).join(' · ');
+  const meta = [monthYear(w.date), `${w.supply} editions`, tech].join(' · ');
+  const person = (p) => `<strong>${esc(p.name)}</strong> (${p.links.map((l) => `<a href="${l.href}" target="_blank" rel="noopener noreferrer">${l.label}</a>`).join(', ')})`;
+  const credit = w.with?.length
+    ? `\n          <p>Made together with ${w.with.map((k) => person(PEOPLE[k])).join(' and ')}.</p>`
+    : '';
   const title = `${w.name} — Generative art — Lomz`;
   const desc = `${w.name}, a generative artwork by Lomz made on fx(hash) in ${monthYear(w.date)}. It runs live in your browser and draws a new variation each time.`;
   const url = `https://lomz.net/fxhash/${w.slug}/`;
@@ -74,7 +78,7 @@ function render(w, prev, next) {
         <h1 class="about-lead display-md">${esc(w.name)}</h1>
         <div class="about-body body-lg">
           <p class="caption">${esc(meta)}</p>
-          <p>A generative artwork that runs live right here. Every variation is drawn from a new random seed.</p>${more}
+          <p>A generative artwork that runs live right here. Every variation is drawn from a new random seed.</p>${credit}${more}
         </div>
       </div>
     </section>

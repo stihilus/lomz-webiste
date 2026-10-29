@@ -50,12 +50,13 @@
   <site-header></site-header>
 
   <main>
-    <section class="about container">
+    <section class="about container archive-intro">
       <div class="split-head">
         <h1 class="about-lead display-md">Generative art</h1>
         <div class="about-body body-lg">
           <p>Between November 2021 and December 2023 I made 46 generative projects on fx(hash). Almost all of them are written in p5.js, by hand, line by line.</p>
-          <p>This is work from before the age of AI. There was no assistant to ask, so each piece was a real challenge: figuring out the maths, the structure and the bugs on my own. Go through them in order and you can see how my work progressed.</p>
+          <p>This is work from before the age of AI. Whenever I got stuck with the code, I turned to my friends, and I'm grateful to every one of them who helped me out. Even so, each piece was a real challenge: figuring out the maths, the structure and the bugs. Go through them in order and you can see how my work progressed.</p>
+          <p>Some of these I made together with friends: <a href="https://www.instagram.com/joe_chain90/" target="_blank" rel="noopener noreferrer">Joe Chain</a> (<a href="./fxhash/lemmings/">Lemmings</a>, <a href="./fxhash/shapely-crew/">Shapely Crew</a>, <a href="./fxhash/super-unbelievable-fall-at-dawn/">Super Unbelievable Fall at Dawn</a>), <a href="https://twitter.com/Waxheadart" target="_blank" rel="noopener noreferrer">Waxheadart</a> (<a href="./fxhash/comics/">Comics</a>), <a href="https://x.com/alexis_o_O" target="_blank" rel="noopener noreferrer">Aleksandra Jovanić</a> (<a href="./fxhash/screw-emotions/">Screw Emotions</a>) and <a href="https://x.com/speedy_milan" target="_blank" rel="noopener noreferrer">speedy_milan</a> (<a href="./fxhash/la-bande-dessinee/">la bande dessinée</a>, <a href="./fxhash/glitch-i/">Glitch I</a>).</p>
           <p>One of them, <a href="./kolorfon.html">Kolorfon</a>, also exists as a physical installation. Here I built a digital version of it.</p>
         </div>
       </div>
@@ -82,14 +83,14 @@
 
   <!-- Render the grid from the local snapshot, then reveal cards on scroll -->
   <script type="module">
-    import { FXHASH } from './data/fxhash.js';
+    import { FXHASH, PEOPLE } from './data/fxhash.js';
 
     const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     const monthYear = (iso) => `${MONTHS[Number(iso.slice(5, 7)) - 1]} ${iso.slice(0, 4)}`;
     const dotted = (iso) => `${iso.slice(5, 7)}.${iso.slice(0, 4)}.`;
 
     document.getElementById('fx-grid').innerHTML = FXHASH.map((w, i) => {
-      const meta = [monthYear(w.date), `${w.supply} editions`, w.with ? `with ${w.with}` : null].filter(Boolean).join(' · ');
+      const meta = [monthYear(w.date), `${w.supply} editions`, w.with?.length ? `with ${w.with.map((k) => PEOPLE[k].name).join(', ')}` : null].filter(Boolean).join(' · ');
       const inner = `
         <div class="project-thumb">
           <img class="thumb-img" src="./assets/fxhash/${w.id}.jpg" alt="${w.name}" width="800" height="800" loading="lazy" />
