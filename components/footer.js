@@ -25,6 +25,7 @@ class SiteFooter extends HTMLElement {
                 <td class="footer-cell-nav">
                   <ul>
                     <li><a href="./">Work</a></li>
+                    <li><a href="./generative-art.html">Generative art</a></li>
                     <li><a href="./about.html">About</a></li>
                     <li><a href="./log.html">Log</a></li>
                     <li>&nbsp;</li>

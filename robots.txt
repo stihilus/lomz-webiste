@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /fxhash/*/piece/
 
 Sitemap: https://lomz.net/sitemap.xml

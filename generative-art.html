@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generative art — Lomz</title>
+  <meta name="description" content="46 generative art projects made on fx(hash) between 2021 and 2023, mostly written in p5.js, before the age of AI. By Lomz." />
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) { t = 'light'; }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Generative art — Lomz" />
+  <meta property="og:description" content="46 generative art projects made on fx(hash) between 2021 and 2023, mostly written in p5.js, before the age of AI. By Lomz." />
+  <meta property="og:image" content="https://lomz.net/assets/fxhash/627.jpg" />
+  <meta property="og:url" content="https://lomz.net/generative-art.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Lomz — Art × Technology" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Generative art — Lomz" />
+  <meta name="twitter:description" content="46 generative art projects made on fx(hash) between 2021 and 2023, mostly written in p5.js, before the age of AI. By Lomz." />
+  <meta name="twitter:image" content="https://lomz.net/assets/fxhash/627.jpg" />
+
+</head>
+<body>
+
+  <!-- Dither filter — applied to the artwork thumbnails until hover -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <filter id="dither" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="1.5" numOctaves="1" seed="3" stitchTiles="stitch" result="rawNoise"/>
+      <feColorMatrix in="rawNoise" type="matrix" values=".33 .33 .33 0 0  .33 .33 .33 0 0  .33 .33 .33 0 0  0 0 0 0 1" result="noise"/>
+      <feColorMatrix in="SourceGraphic" type="matrix" values=".33 .33 .33 0 0  .33 .33 .33 0 0  .33 .33 .33 0 0  0 0 0 1 0" result="gray"/>
+      <feComposite in="gray" in2="noise" operator="arithmetic" k1="0" k2="1" k3="1" k4="-.5"/>
+      <feComponentTransfer>
+        <feFuncR type="discrete" tableValues="0 1"/>
+        <feFuncG type="discrete" tableValues="0 1"/>
+        <feFuncB type="discrete" tableValues="0 1"/>
+      </feComponentTransfer>
+    </filter>
+  </svg>
+
+  <site-header></site-header>
+
+  <main>
+    <section class="about container">
+      <div class="split-head">
+        <h1 class="about-lead display-md">Generative art</h1>
+        <div class="about-body body-lg">
+          <p>Between November 2021 and December 2023 I made 46 generative projects on fx(hash). Almost all of them are written in p5.js, by hand, line by line.</p>
+          <p>This is work from before the age of AI. There was no assistant to ask, so each piece was a real challenge: figuring out the maths, the structure and the bugs on my own. Go through them in order and you can see how my work progressed.</p>
+          <p>One of them, <a href="./kolorfon.html">Kolorfon</a>, also exists as a physical installation. Here I built a digital version of it.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="archive">
+      <div class="section-head">
+        <h2>The archive :</h2>
+        <span class="caption" data-archive-count></span>
+      </div>
+
+      <p class="caption archive-hint">Every work runs live. Open one and press “New variation”.</p>
+
+      <div class="project-grid project-grid--square" id="fx-grid"></div>
+
+      <p class="caption archive-credit">Project list from the <a href="https://killedbyapixel.github.io/fxhashArchive/#/artist/tz1gYwgGhpxjt4po3f53P1t1sS3osPondHwW" target="_blank" rel="noopener noreferrer">fxhash archive</a> by killedbyapixel. Code and images are hosted on this site.</p>
+    </section>
+  </main>
+
+  <site-footer></site-footer>
+
+  <script src="./components/header.js" type="module"></script>
+  <script src="./components/footer.js" type="module"></script>
+
+  <!-- Render the grid from the local snapshot, then reveal cards on scroll -->
+  <script type="module">
+    import { FXHASH } from './data/fxhash.js';
+
+    const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const monthYear = (iso) => `${MONTHS[Number(iso.slice(5, 7)) - 1]} ${iso.slice(0, 4)}`;
+    const dotted = (iso) => `${iso.slice(5, 7)}.${iso.slice(0, 4)}.`;
+
+    document.getElementById('fx-grid').innerHTML = FXHASH.map((w, i) => {
+      const meta = [monthYear(w.date), `${w.supply} editions`, w.with ? `with ${w.with}` : null].filter(Boolean).join(' · ');
+      const inner = `
+        <div class="project-thumb">
+          <img class="thumb-img" src="./assets/fxhash/${w.id}.jpg" alt="${w.name}" width="800" height="800" loading="lazy" />
+          <span class="thumb-index">${String(i + 1).padStart(2, '0')}</span>
+        </div>
+        <div class="project-meta">
+          <span class="project-title">${w.name}</span>
+          <span class="project-cat caption">${meta}</span>
+        </div>`;
+      return `<a class="project-card" href="./fxhash/${w.slug}/">${inner}</a>`;
+    }).join('');
+
+    document.querySelector('[data-archive-count]').textContent =
+      `${FXHASH.length} projects · ${dotted(FXHASH[0].date)} – ${dotted(FXHASH.at(-1).date)}`;
+
+    const cards = document.querySelectorAll('.project-card');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.filter((e) => e.isIntersecting).forEach((entry, i) => {
+          entry.target.style.transitionDelay = (i * 60) + 'ms';
+          entry.target.classList.add('is-revealed');
+          io.unobserve(entry.target);
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      cards.forEach((card) => io.observe(card));
+    } else {
+      cards.forEach((c) => c.classList.add('is-revealed'));
+    }
+  </script>
+</body>
+</html>

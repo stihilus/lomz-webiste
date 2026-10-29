@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="../../" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glitchy Masks — Generative art — Lomz</title>
+  <meta name="description" content="Glitchy Masks, a generative artwork by Lomz made on fx(hash) in Dec 2022. It runs live in your browser and draws a new variation each time." />
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) { t = 'light'; }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Glitchy Masks — Generative art — Lomz" />
+  <meta property="og:description" content="Glitchy Masks, a generative artwork by Lomz made on fx(hash) in Dec 2022. It runs live in your browser and draws a new variation each time." />
+  <meta property="og:image" content="https://lomz.net/assets/fxhash/22181.jpg" />
+  <meta property="og:url" content="https://lomz.net/fxhash/glitchy-masks/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Lomz — Art × Technology" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Glitchy Masks — Generative art — Lomz" />
+  <meta name="twitter:description" content="Glitchy Masks, a generative artwork by Lomz made on fx(hash) in Dec 2022. It runs live in your browser and draws a new variation each time." />
+  <meta name="twitter:image" content="https://lomz.net/assets/fxhash/22181.jpg" />
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <main>
+    <nav class="project-nav container" aria-label="Work navigation">
+      <span class="project-nav-pair">
+        <a class="project-nav-link" href="./fxhash/super-unbelievable-fall-at-dawn/" rel="prev">&lt; Super Unbelievable Fall at Dawn</a>
+        <span class="project-nav-sep" aria-hidden="true">·</span>
+        <a class="project-nav-link" href="./fxhash/new-way/" rel="next">New way &gt;</a>
+      </span>
+    </nav>
+
+    <section class="project container">
+      <div class="split-head">
+        <h1 class="about-lead display-md">Glitchy Masks</h1>
+        <div class="about-body body-lg">
+          <p class="caption">Dec 2022 · 64 editions · p5.js</p>
+          <p>A generative artwork that runs live right here. Every variation is drawn from a new random seed.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container work-section">
+      <div class="work-frame">
+        <div class="work-stage">
+          <iframe id="piece" title="Glitchy Masks" allow="autoplay"></iframe>
+        </div>
+        <div class="work-actions">
+          <button type="button" id="reroll">New variation ↻</button>
+          <a id="fullscreen" href="./fxhash/glitchy-masks/piece/index.html" target="_blank" rel="noopener">Open full screen ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <site-footer></site-footer>
+
+  <script src="./components/header.js" type="module"></script>
+  <script src="./components/footer.js" type="module"></script>
+
+  <!-- Run the piece with a fresh fx(hash) seed (or the one in ?fxhash=, so a variation can be shared) -->
+  <script>
+    (function () {
+      var slug = 'glitchy-masks';
+      var ALPHABET = '123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ';
+      function newHash() {
+        var h = 'oo';
+        for (var i = 0; i < 49; i++) h += ALPHABET[Math.floor(Math.random() * ALPHABET.length)];
+        return h;
+      }
+      var frame = document.getElementById('piece');
+      var full = document.getElementById('fullscreen');
+      var hash = new URLSearchParams(location.search).get('fxhash');
+      if (!/^oo[1-9a-km-zA-HJ-NP-Z]{49}$/.test(hash || '')) hash = newHash();
+
+      function load() {
+        var url = 'fxhash/' + slug + '/piece/index.html?fxhash=' + hash;
+        frame.src = url;
+        full.href = url;
+        history.replaceState(null, '', location.pathname + '?fxhash=' + hash);
+      }
+      document.getElementById('reroll').addEventListener('click', function () { hash = newHash(); load(); });
+      load();
+    })();
+  </script>
+</body>
+</html>

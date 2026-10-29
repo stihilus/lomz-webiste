@@ -122,6 +122,7 @@ site-header { display: block; position: relative; z-index: 100; background: tran
   transition: color 150ms ease;
 }
 .nav-links a[aria-current="page"] { color: var(--accent); }
+@media (max-width: 480px) { .nav-long { display: none; } }
 
 .theme-toggle {
   display: inline-flex; align-items: center; justify-content: center;
@@ -386,6 +387,22 @@ site-footer { display: block; }
 .project-desc { color: var(--ink); }
 .project-cat { margin-top: var(--sp-xs); }
 
+/* Generative art archive: square artworks */
+.project-grid--square .project-thumb { aspect-ratio: 1 / 1; }
+.archive-hint { margin-bottom: var(--sp-lg); }
+.archive-credit { margin-top: var(--sp-xl); }
+
+/* Generative art: each piece runs live on its own page */
+.work-section { padding-bottom: var(--sp-xl); }
+.work-frame { width: min(100%, 85vh); margin-inline: auto; }
+.work-stage { aspect-ratio: 1 / 1; border: 1px solid var(--hairline); background: var(--ink-08); }
+.work-stage iframe { display: block; width: 100%; height: 100%; border: 0; background: #fff; }
+.work-actions { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-lg); margin-top: var(--sp-md); }
+.work-actions button {
+  font: inherit; color: var(--accent); background: none; border: 0; padding: 0;
+  cursor: pointer; text-decoration: underline; text-underline-offset: 3px;
+}
+
 /* ==========================================================================
    INDEX (TABLE) VIEW
    ========================================================================== */
@@ -608,5 +625,7 @@ related-projects { display: block; }
 @media (max-width: 640px) {
   .container { padding-inline: var(--sp-sm); }
   .project-grid { grid-template-columns: 1fr; }
+  .project-grid--square { grid-template-columns: 1fr 1fr; }
+  .project-grid--square .project-cat { font-size: 13px; line-height: 16px; }
   .meta-cols { grid-template-columns: 1fr; }
 }

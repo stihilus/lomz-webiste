@@ -1,0 +1,1 @@
+var cities = ["Tokyo","Delhi", "Shanghai", "São Paulo", "Mexico City", "Cairo","Mumbai", "Beijing","Dhaka","Osaka","New York","Karachi", "Buenos Aires", "Chongqing", "Istanbul", "Kolkata","Manila", "Lagos", "Rio de Janeiro", "Tianjin", "Kinshasa", "Belgrade", "Los Angeles", "Shenzhen", "Lahore", "Bangalore", "Paris", "Bogotá", "Jakarta", "Chennai", "Lima", "Bangkok"];

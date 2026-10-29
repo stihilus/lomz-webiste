@@ -2,6 +2,7 @@ class SiteHeader extends HTMLElement {
   connectedCallback() {
     const isAbout = location.pathname.includes('about');
     const isLog = /\/log(\.html)?$/.test(location.pathname);
+    const isGen = /\/(generative-art(\.html)?|fxhash\/.*)$/.test(location.pathname);
     this.innerHTML = `
       <nav class="site-nav container">
         <a class="logo" href="./" aria-label="lomz — home">
@@ -13,7 +14,8 @@ class SiteHeader extends HTMLElement {
           </svg>
         </a>
         <div class="nav-links">
-          <a href="./"${!isAbout && !isLog ? ' aria-current="page"' : ''}>work</a>
+          <a href="./"${!isAbout && !isLog && !isGen ? ' aria-current="page"' : ''}>work</a>
+          <a href="./generative-art.html" aria-label="Generative art"${isGen ? ' aria-current="page"' : ''}><span class="nav-long">generative </span>art</a>
           <a href="./log.html"${isLog ? ' aria-current="page"' : ''}>log</a>
           <a href="./about.html"${isAbout ? ' aria-current="page"' : ''}>about</a>
           <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
