@@ -1,6 +1,7 @@
 class SiteHeader extends HTMLElement {
   connectedCallback() {
-    const isAbout = location.pathname.includes('about');
+    const isAbout = /\/about(\.html)?$/.test(location.pathname);
+    const isBlog = /\/blog(\/|$)/.test(location.pathname);
     const isLog = /\/log(\.html)?$/.test(location.pathname);
     const isGen = /\/(generative-art(\.html)?|fxhash\/.*)$/.test(location.pathname);
     this.innerHTML = `
@@ -14,8 +15,9 @@ class SiteHeader extends HTMLElement {
           </svg>
         </a>
         <div class="nav-links">
-          <a href="./"${!isAbout && !isLog && !isGen ? ' aria-current="page"' : ''}>work</a>
+          <a href="./"${!isAbout && !isBlog && !isLog && !isGen ? ' aria-current="page"' : ''}>work</a>
           <a href="./generative-art.html" aria-label="Generative art"${isGen ? ' aria-current="page"' : ''}><span class="nav-long">generative </span>art</a>
+          <a href="./blog/"${isBlog ? ' aria-current="page"' : ''}>blog</a>
           <a href="./log.html"${isLog ? ' aria-current="page"' : ''}>log</a>
           <a href="./about.html"${isAbout ? ' aria-current="page"' : ''}>about</a>
           <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">

@@ -122,7 +122,12 @@ site-header { display: block; position: relative; z-index: 100; background: tran
   transition: color 150ms ease;
 }
 .nav-links a[aria-current="page"] { color: var(--accent); }
-@media (max-width: 480px) { .nav-long { display: none; } }
+@media (max-width: 480px) {
+  .nav-long { display: none; }
+  .nav-links { gap: var(--sp-md); }
+  .nav-links a { font-size: 15px; }
+  .site-nav .logo svg { height: 16px; }
+}
 
 .theme-toggle {
   display: inline-flex; align-items: center; justify-content: center;
@@ -611,6 +616,16 @@ related-projects { display: block; }
   border-bottom: 1px solid var(--hairline);
 }
 .log-date { color: var(--ink-60); white-space: nowrap; }
+
+/* Blog post: title left, text right (long titles, so smaller than the 120px page titles) */
+.post-title {
+  font-family: "Takeaways", var(--font-sans);
+  font-size: clamp(40px, 6vw, 72px); font-weight: 500;
+  line-height: 1.05; letter-spacing: -0.03em;
+}
+.post-head > :first-child { max-width: none; }
+.post-date { margin-top: var(--sp-md); color: var(--ink-60); }
+.post { padding-bottom: var(--sp-xl); }
 
 @media (max-width: 640px) {
   .entry, .log-row { grid-template-columns: 1fr; gap: var(--sp-xs); }

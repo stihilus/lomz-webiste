@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="../" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Lomz</title>
+  <meta name="description" content="Blog — writing by Vukasin aka Lomz on design, art and technology." />
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) { t = 'light'; }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Blog — Lomz" />
+  <meta property="og:description" content="Blog — writing by Vukasin aka Lomz on design, art and technology." />
+  <meta property="og:image" content="https://lomz.net/assets/home-screen-slider-01.jpg" />
+  <meta property="og:url" content="https://lomz.net/blog/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Lomz — Art × Technology" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog — Lomz" />
+  <meta name="twitter:description" content="Blog — writing by Vukasin aka Lomz on design, art and technology." />
+  <meta name="twitter:image" content="https://lomz.net/assets/home-screen-slider-01.jpg" />
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <main>
+    <section class="about container">
+      <div class="split-head">
+        <h1 class="about-lead display-md">Blog</h1>
+      </div>
+
+      <div class="about-section">
+        <h2 class="about-heading">Posts</h2>
+        <div class="log-row">
+          <span class="caption log-date">30.10.2026.</span>
+          <span class="log-text"><a href="./blog/taste-isnt-in-the-dataset.html">Taste is the one thing that isn’t in the dataset</a></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <site-footer></site-footer>
+
+  <script src="./components/header.js" type="module"></script>
+  <script src="./components/footer.js" type="module"></script>
+</body>
+</html>
