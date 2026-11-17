@@ -617,6 +617,10 @@ related-projects { display: block; }
 }
 .log-date { color: var(--ink-60); white-space: nowrap; }
 
+/* Mouse trail (components/cursor-trail.js): above everything, never catches clicks */
+.cursor-trail { position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none; }
+@media print { .cursor-trail { display: none; } }
+
 /* Blog post: title left, text right (long titles, so smaller than the 120px page titles) */
 .post-title {
   font-family: "Takeaways", var(--font-sans);
