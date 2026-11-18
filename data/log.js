@@ -3,6 +3,7 @@
 // date is YYYY-MM-DD, or YYYY-MM when only the month matters. href is optional.
 
 export const LOG = [
+  { date: '2026-11-18', text: 'Sorted the work into new categories: Tool, Generative Art, Installation, Illustration, Exploration and Game. Removed openSnippet.' },
   { date: '2026-11-17', text: 'Added a hand-drawn blue line that follows the mouse on desktop and fades a second after it stops.' },
   { date: '2026-10-30', text: 'Added a blog, starting with “Taste is the one thing that isn’t in the dataset”.', href: './blog/taste-isnt-in-the-dataset.html' },
   { date: '2026-10-29', text: 'Added Generative art: all 46 of my fx(hash) projects from 2021–2023, each running live on its own page.', href: './generative-art.html' },
