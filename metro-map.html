@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Metro Map — Lomz</title>
+  <meta name="description" content="Metro Map draws a subway map and plays it. Every station is a sound, trains ride the lines and chance picks the route. By Lomz." />
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) { t = 'light'; }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Metro Map — Lomz" />
+  <meta property="og:description" content="Metro Map draws a subway map and plays it. Every station is a sound, trains ride the lines and chance picks the route. By Lomz." />
+  <meta property="og:image" content="https://lomz.net/assets/metro-map-04.jpg" />
+  <meta property="og:url" content="https://lomz.net/metro-map.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Lomz — Art × Technology" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Metro Map — Lomz" />
+  <meta name="twitter:description" content="Metro Map draws a subway map and plays it. Every station is a sound, trains ride the lines and chance picks the route. By Lomz." />
+  <meta name="twitter:image" content="https://lomz.net/assets/metro-map-04.jpg" />
+
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <main>
+    <project-nav></project-nav>
+    <!-- HEADER: title left · body right -->
+    <section class="project container">
+      <div class="split-head">
+        <h1 class="about-lead display-md">Metro Map</h1>
+        <div class="about-body body-lg">
+          <p>A subway map that plays itself. Every station is a sound, every line is a loop, and the trains are the music. At every junction chance picks where a train goes next, so the same map never plays quite the same way twice.</p>
+          <p>Hit “New city” for a fresh map, or build your own: drop stations, draw lines between them and give each one a drum or a note. Pick a style, tempo and swing, and let the trains join one by one so the track builds up.</p>
+          <p>When it sounds right, save the poster as an image or record a 30 second video. The whole map is also plain text, so you can copy it, change it and share it as a link.</p>
+
+          <div class="project-links">
+            <span class="meta-label">Project links</span>
+            <div class="project-links-list">
+              <a href="./metro-map/app/" target="_blank" rel="noopener">Make your own map ↗</a>
+              <a href="./metro-map/app/#zfVbJbttIEL3zKwo6K0bvC3SRjTgJMpmJERsTYG601GMTpkkPScnQ3w-qupuiJCYnClWvXi1di5p2G3rgxaYaDrD4Utbtvl0U_e4RFve7x_fyAJ931TYsiuE5vAboQh_KXTGE17cWuGRF_141T8CKPoQtcOO9KA6h7IB744qXcIDFLbxWTdstin441AGe6mrYPBdVM3QtCPi36vqhGKqhDmAYeKR8bt-BAwcGvOiBg-EalHSw7XavgKF9AHblgEO5G1pYcK7ger8oehAEtRm6qavNC4EVsATWGu4HxEpwQoNlF7QZ-VfZ9-UuoRWhlfkN8-e23sLdy_sB8RqM1WDUL9m_lN1j28HdC6INobX7JfrPQ4cFimgb0eIiFn2O_9Yg3oHQGpR3-HoDfDgr36fQNClLT0jrE_NwmaRwCcoZaDHJ8HHXETe7EiP4Dpm_biKeg-STes9wf3_sQ7cvh7ajEnJBFqOH0UKcp_ljS3hJ-LGKMx7-KZsA9_8RWgFnTINXDpp2CHCrYfNcvRF-7Cxhc7rxQUf05wk6s38qq-6pa3fNticTA1Zq4Fwkm5sZm4_hrY0OLHg-RX-cQV_v4Q8CO7BGYwIzwY_92-7LHL2n9j3i58hvqm7zDDf1nqopGDg3NZmL_qHahjx6HLya4q9n8D-70MBdTXgBwmkQOd1bCX3VBOpifhJRbHohgWPK5qyLT7JNoSiitjPMY-Bl04QuNQ4ONovUMdMZg4-7JuRWFia2DsY-O1F_d-WmHNnjwwp3MSjHuvwot1ULD-176MjEUS3tbyxuN8_tuGyEJxcqz-1jXb0RXh5r-a1qtqFJG0Ey6p9xhYwG3B9npW0Jyql1pJ3hztCvu6Z6C93YO1KAdhokz8Oi4Kku-x4zOEb0vd5iyjEgCcpMLK5PLLIfrlle3gqkmuBvZvFpg6ec8cE0SHUcgRmT625T4rXrQRpqODUZsRn817LbV_34EtICZ_FO5DUxY_Szquv2PXWrdJB2fx6bubD28I3AHsF2MpMz4Pu6HPJYKkaF5f6YxUVvfynrkM8cB-U1cHl0cAFPnZQMBGh9nLU5_EPo67iIauAggBYvMPDrD-xKL-0awUrqpZJuhV8rXVGDAAkK9BGJfZh0qDmlKWoUnAnJQiU2ndmiQ2MzmQYDMtmRrqjBgL2QWYp-IiOOSO_wdCadiHlxgnDMy7sVfq1HqMfTKfC_ToZiyVG50pigQRBn4MZkEgq1KlNQIVEZ3Uie6TnHw8mTKU-xo0heSiX-N5gKiSg6wQOpR61JSbGYFWN66bRbYQWcJjguUBBgj2iqD2ferSzTS7xsiDN46k5pUWzR4akYlyCZrcgfZyY7wqglBc3WR0eM1A6v3Zgpy6l6vGgXYsHwcF2KOaV_IoYUBHnB6yXHDnFrhrtiKShDIfEC6TOdJZXCYzM1UyyrcD2dWKEqMRq8IrkdGDJiLMKR0uK9cBOlc6RbOa2XQsdv9OGQasrjcQrG-hLGY2UzRiOG66WmOCTDcyAnOitJt8KvJB-SI8W5fdJJ7Fl6Os1ArRlOLaOlg4Iow3215PTUqBBRh3TRQArkiZ0i_ZUAGcUSjwJyXzlQJksV7X3Q9JVrhn9wl5JTNJp2POAhtBlvaIWDkvQzyizuaA5G0U_MOs-IdLiRBZhYE7lm_wM" target="_blank" rel="noopener">Open Halovo, the map from the video ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA: one per row, 16:9 -->
+    <section class="project-media container">
+      <div class="media-grid media-grid--wide">
+        <figure class="media-item"><video src="./assets/metro-map-video-01.mp4" poster="./assets/metro-map-02.jpg" autoplay loop muted playsinline controls preload="metadata" aria-label="Halovo: the trains join one by one every two bars"></video></figure>
+        <figure class="media-item"><img src="./assets/metro-map-02.jpg" alt="Metro Map while playing: trains on the Halovo map, stations lighting up, and the station panel with its sound settings" loading="lazy" /></figure>
+        <figure class="media-item"><img src="./assets/metro-map-03.jpg" alt="The same Halovo map in all six color themes, side by side" loading="lazy" /></figure>
+        <figure class="media-item"><img src="./assets/metro-map-04.jpg" alt="The Halovo poster on top of a table covered in Metro Map posters of other cities" loading="lazy" /></figure>
+        <figure class="media-item"><img src="./assets/metro-map-05.jpg" alt="Close-up of the Halovo map: interlocking loops with station names and their sounds" loading="lazy" /></figure>
+        <figure class="media-item"><img src="./assets/metro-map-06.jpg" alt="Close-up of Halovo in the Signage theme: the title, the red loop and the route bullets A to G" loading="lazy" /></figure>
+        <figure class="media-item"><img src="./assets/metro-map-07.jpg" alt="Close-up of Marava, a generated city in the Night theme, with its title and colored lines" loading="lazy" /></figure>
+        <figure class="media-item"><img src="./assets/metro-map-08.jpg" alt="Close-up of Port Morpolis in the Basement theme, with its pixel title Port Morpolis Rapid Transit" loading="lazy" /></figure>
+        <figure class="media-item"><img src="./assets/metro-map-09.jpg" alt="Close-up of Halovo in the Lecture theme: olive paper with light green and dark lines" loading="lazy" /></figure>
+        <figure class="media-item"><img src="./assets/metro-map-10.jpg" alt="Close-up of Torby, a generated city in the Guide theme, with pink and purple loops" loading="lazy" /></figure>
+      </div>
+    </section>
+  </main>
+
+  <related-projects></related-projects>
+  <site-footer></site-footer>
+
+  <script src="./components/header.js" type="module"></script>
+  <script src="./components/footer.js" type="module"></script>
+  <script src="./components/related-projects.js" type="module"></script>
+</body>
+</html>
